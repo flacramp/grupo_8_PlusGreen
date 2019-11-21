@@ -9,3 +9,10 @@ Quien sera nuestra audiencia objetivo?
 dentro del segmento socioeconomio ABC1/C2/C3 con un habito de consumo online (al menos una vez al año) pero con un fuerte interes por 
 las nuevas tendencias de un consumo sustentable basado en el cuidado del medio ambiente y la conciencia del impacto que generamos en 
 nuestro entorno.
+
+Tomamos de referencia los siguientes sitios web:
+https://earthhero.com/product-category/home/
+https://ofertas.mercadolibre.com.ar/productos-sustentables
+https://www.onyalife.com/
+https://www.green-box.com.ar/
+https://www.reconsciente.com/
