@@ -1,4 +1,24 @@
 html, body {
   min-height: 100vh;
   margin: 0;
+  width: 100%;
+  padding-left: ;
+}
+
+header {
+  height: 50px;
+  width: auto;
+  background-color: rgb(36, 55, 61);
+
+}
+
+header .topBanner-img {
+  max-height: 100%;
+  max-width: 100%;
+
+}
+
+header .hamburguer-button{
+  position: relative;
+  cursor: pointer;
 }
