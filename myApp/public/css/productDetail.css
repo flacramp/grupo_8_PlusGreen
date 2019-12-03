@@ -1,0 +1,85 @@
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  width: 1000px;
+  height: 1000px;
+}
+
+.carrousel-img {
+  float: left;
+  width: 50%;
+  height: 50%; 
+}
+
+img {
+  width: auto;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.right-product {
+  float: right;
+  width: 500px;
+  height: 50%;
+}
+
+.product-title{
+  border-bottom: solid 2px green;
+  height: 58px;
+  width: auto;
+}
+.product-desc-short {
+  float: left;
+  height: 440px;
+  width: auto;
+}
+.product-desc-short li{
+  line-height: 50px;
+  width: 200px;
+}
+
+.product-terms {
+  float: right;
+  width: 260px;
+  height: 250px;
+}
+.product-price {
+  width: auto;
+  text-align: right;  
+  height: 50%;
+}
+.product-difs {
+  text-align: right;
+  width: auto;
+  height: 50%;
+}
+.product-difs h4 {
+  line-height: 1px;
+  padding-top: 10px;
+}
+
+.product-desc-long {
+  float: left;
+  height: 50%;
+  width: auto;
+}
+
+.action-boxes {
+  width: 260px;
+  height: 190px;
+  float: right;
+}
+
+.buy-add-box {
+  width: 260px; 
+  height: 95px;
+}
+.buy-button {
+  float: right; 
+}
+
+.addtocart-button {
+  float: left;
+}
