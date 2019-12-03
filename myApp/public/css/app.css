@@ -49,14 +49,26 @@ header .top-button-menu .words {
   padding-left: 50px;
 }
 
-header .search-bar{
+header .search-form{
   height: 100%;
   float: left;
   padding-left: 20px;
   text-align: center;
+  vertical-align: center;
 }
 
 header .input-nombre{
-  height: 100%;
+  height: 70%;
   float: left;
+  text-align: center;
+  vertical-align: center;
+  padding-top:8%;
+}
+
+header .search-box{
+  height: 70%;
+  float: left;
+  text-align: center;
+  vertical-align: center;
+  padding-top:8%;
 }
