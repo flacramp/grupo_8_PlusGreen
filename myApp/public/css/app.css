@@ -2,7 +2,6 @@ html, body {
   min-height: 100vh;
   margin: 0;
   width: 100%;
-  padding-left: ;
 }
 
 header {
@@ -12,13 +11,52 @@ header {
 
 }
 
-header .topBanner-img {
-  max-height: 100%;
-  max-width: 100%;
+header .hamburger-button{
+  height: 100%;
+  float: left;
+  padding: 10px;
+  margin-left: 100px;
+}
+
+header .hamburger-button img{
+max-height: 30px;
+cursor: pointer;
 
 }
 
-header .hamburguer-button{
-  position: relative;
-  cursor: pointer;
+header .logo{
+  height: 100%;
+  float: left;
+  padding: 10px; 
+
+}
+
+header .logo img{
+  max-height: 30px;  
+}
+
+header .top-button-menu {
+  float:left;
+  height:100%;
+  padding-left: 25px;
+
+}
+
+header .top-button-menu .words {
+  float:left;
+  height:100%;
+  color: slategray;
+  padding-left: 50px;
+}
+
+header .search-bar{
+  height: 100%;
+  float: left;
+  padding-left: 20px;
+  text-align: center;
+}
+
+header .input-nombre{
+  height: 100%;
+  float: left;
 }
