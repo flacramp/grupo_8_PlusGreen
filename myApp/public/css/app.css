@@ -57,18 +57,34 @@ header .search-form{
   vertical-align: center;
 }
 
-header .input-nombre{
-  height: 70%;
-  float: left;
-  text-align: center;
-  vertical-align: center;
-  padding-top:8%;
-}
-
 header .search-box{
   height: 70%;
   float: left;
   text-align: center;
   vertical-align: center;
-  padding-top:8%;
+  padding-top:6%;
+}
+
+header .user-logo{
+  height: 100%;
+  padding-left: 10%;
+  float:left;
+}
+header .user-logo img{
+  height: 70%;
+  width:auto;
+  padding-top: 20%;
+}
+
+header .white-cart{
+  height: 100%;
+  padding-left: 2%;
+  float:left;
+}
+
+header .white-cart img{
+  height: 60%;
+  width:auto;
+  padding-top: 30%;
+
 }
