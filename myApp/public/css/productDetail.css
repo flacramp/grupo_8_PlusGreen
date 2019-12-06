@@ -5,59 +5,91 @@ html, body {
   height: 1000px;
 }
 
+.product-breadcrumb {
+  width: auto;
+  height: 5%;
+}
+.product-main {
+  width: 100%;
+  height: 80%;
+}
+
 .carrousel-img {
   float: left;
   width: 50%;
   height: 50%; 
+  border-bottom: solid 2px green;
+  border-top: solid 2px green;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
-img {
-  width: auto;
-  height: 500px;
-  margin-left: auto;
-  margin-right: auto;
+.carrousel-img img {
+  height: 400px;
+  margin: auto;
   display: block;
 }
 
 .right-product {
-  float: right;
-  width: 500px;
+  float: left;
+  width: 50%;
   height: 50%;
+  border-bottom: solid 2px green;
+  border-top: solid 2px green;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .product-title{
   border-bottom: solid 2px green;
-  height: 58px;
+  height: 20%;
   width: auto;
 }
 .product-desc-short {
   float: left;
-  height: 440px;
-  width: auto;
+  height: 80%;
+  width: 50%;
+ 
 }
 .product-desc-short li{
-  line-height: 50px;
-  width: 200px;
+  line-height: 200%;
 }
 
 .product-terms {
   float: right;
-  width: 260px;
-  height: 250px;
+  width: 50%;
+  height: 40%;
+  border-bottom: solid 2px green;
 }
 .product-price {
-  width: auto;
-  text-align: right;  
+  width: 100%;
   height: 50%;
+  text-align: right; 
+  float: right; 
 }
 .product-difs {
   text-align: right;
-  width: auto;
-  height: 50%;
+  width: 100%;
+  height: 40%;
+  float: right;
 }
-.product-difs h4 {
-  line-height: 1px;
-  padding-top: 10px;
+.product-difs p {
+  line-height: 10%;
+}
+
+.quantity {
+  width: 50%;
+  height: 20%;
+  float: right;
+  text-align: right;
+  line-height: 1%;
+}
+
+.buy-add-box {
+  width: 50%;
+  height: 20%;
+  float: right;
+  text-align: right;
 }
 
 .product-desc-long {
@@ -66,20 +98,8 @@ img {
   width: auto;
 }
 
-.action-boxes {
-  width: 260px;
-  height: 190px;
-  float: right;
-}
-
-.buy-add-box {
-  width: 260px; 
-  height: 95px;
-}
-.buy-button {
-  float: right; 
-}
-
-.addtocart-button {
-  float: left;
+@media (max-width: 600px) {
+  .product-right{
+    float: none;
+  }
 }
