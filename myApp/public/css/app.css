@@ -1,8 +1,12 @@
+
 html, body {
   min-height: 100vh;
   margin:0;
   width:100%;
-  color:grey
+  color:grey;
+  font-family: 'Tomorrow', sans-serif;
+  background-color: white;
+
 }
 
 .navbar {
