@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Page</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+	<link rel="stylesheet" href="/css/app.css">
+
+</head>
+<body>
+<!-- NavBar -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!-- agrego ml-5 para separarlo del margen-->
+			<a class="navbar-brand ml-5" href="#">+Green</a>
+
+<!-- Menu ppal. -->
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home
+							<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/categorias">Categorías</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/contacto">Contacto</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/about-us">¿Quienes Somos?</a>
+					</li>
+				</ul>
+			</div>
+			<!-- SearchBar -->
+			<form class="form-inline my-2 my-lg-0">
+					<button class="btn btn-outline-secondary mr-2 my-sm-0" type="submit">
+						<i class="fas fa-search"></i>
+					</button>
+					<input class="form-control mr-sm-2" type="text" placeholder="Buscá lo que querés!" aria-label="Search">
+			</form>
+			<!-- User Profile -->
+			<a href="/account">
+				<i class="fas fa-user topBarIcons" ></i>
+			</a>
+			<!-- Cart -->
+			<a href="/cart">
+				<i class="fas fa-shopping-cart topBarIcons"></i>
+			</a>
+		</nav>
+
+</body>
+</html>

@@ -1,121 +1,33 @@
 html, body {
   min-height: 100vh;
-  margin: 0;
-  width: 100%;
+  margin:0;
+  width:100%;
+  color:grey
 }
 
-header {
-  height: 50px;
-  width: auto;
-  background-color: rgb(36, 55, 61);
-
+.navbar {
+  justify-content: flex-start;
 }
 
-header .hamburger-button{
-  height: 100%;
-  float: left;
-  padding: 10px;
-  margin-left: 100px;
+
+.topBarIcons {
+  color:white;
+  padding-left: 1rem;
+  font-size: large;
 }
 
-header .hamburger-button img{
-max-height: 30px;
-cursor: pointer;
-
+.usp-container{
+  max-height: 100%;
 }
 
-header .logo{
-  height: 100%;
-  float: left;
-  padding: 10px; 
 
+
+.usp img{
+  max-height: 50px;
+  
 }
 
-header .logo img{
-  max-height: 30px;  
+.footer-line{
+margin:0%;
 }
 
-header .top-button-menu {
-  float:left;
-  height:100%;
-  padding-left: 25px;
-
-}
-
-header .top-button-menu .words {
-  float:left;
-  height:100%;
-  color: slategray;
-  padding-left: 50px;
-}
-
-header .search-form{
-  height: 100%;
-  float: left;
-  padding-left: 20px;
-  text-align: center;
-  vertical-align: center;
-}
-
-header .search-box{
-  height: 70%;
-  float: left;
-  text-align: center;
-  vertical-align: center;
-  padding-top:6%;
-}
-
-header .user-logo{
-  height: 100%;
-  padding-left: 10%;
-  float:left;
-}
-header .user-logo img{
-  height: 70%;
-  width:auto;
-  padding-top: 20%;
-}
-
-header .white-cart{
-  height: 100%;
-  padding-left: 2%;
-  float:left;
-}
-
-header .white-cart img{
-  height: 60%;
-  width:auto;
-  padding-top: 30%;
-
-}
-
-footer {
-  width: 100%;
-  height: 100px;
-  background-color: rgb(36, 55, 61);
-  position: absolute;
-  bottom: 0;
-}
-
-footer .footer-newsletter{
-  width: auto;
-  height: auto;
-  padding-left: 20%;
-  border-bottom: solid lightgray 1px;
-}
-
-.text-suscripcion{
-  padding-top: 2%;
-  height: 20%;
-  line-height: 100%;
-  float:left;
-  color: lightgray;
-  margin-left: 10%;
-}
-
-.form-newsletter{
-  padding-top: 4%;
-  height: 50%;
-  float: left;
-  padding-left: 100px;
-}
