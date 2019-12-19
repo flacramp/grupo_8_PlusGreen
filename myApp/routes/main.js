@@ -22,9 +22,6 @@ router.get('/productDetail',productDetailController.root);
 router.get('/productCart',productCartController.root);
 
 /* GET - home page. */
-router.get('/register',registerController.root);
-
-/* GET - home page. */
 router.get('/productAdd',productAddController.root);
 
 /* GET - footer. */
@@ -32,6 +29,12 @@ router.get('/footer',footerController.root);
 
 /* GET - footer. */
 router.get('/header',headerController.root);
+
+/* GET - formulario de registro. */
+router.get('/register/create', registerController.mostrarRegister);
+
+/* POST - Guardar el registro del usuario en DB */ 
+router.post('/register/create', registerController.guardarRegister);
 
 
 module.exports = router;
