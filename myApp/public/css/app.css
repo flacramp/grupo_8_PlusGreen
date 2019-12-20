@@ -8,9 +8,6 @@ html, body {
 
 }
 
-/* .navbar {
-  justify-content: flex-start;
-} */
 
 
 .topBarIcons {
@@ -34,7 +31,13 @@ html, body {
 margin:0%;
 }
 
-/* header media-queries*/
-/* @media (max-width:576){
-display: ;;
-}; */
+.nav-item {
+  font-size: 12px;
+}
+@media (min-width: 0px){
+.form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+};
