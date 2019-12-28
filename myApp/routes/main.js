@@ -1,6 +1,20 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
+const path = require('path');
+const multer = require('multer');
+
+const storageDisk = multer.diskStorage({
+	destination: (req, file, cb) => {
+		cb(null, __dirname + '/../../public/images/profileImages');
+	},
+	filename: (req, file, cb) => {
+        let imageFinalName = `profile_image_${Date.now()}${path.extname(file.originalname)}`;
+        // ${newUserData.first_name}-${newUserData.last_name}`;
+		cb(null, imageFinalName);
+	}
+});
+const upload=multer({storage: storageDisk});
 
 // ************ Controller Require ************
 const mainController = require('../controllers/mainController');
@@ -19,10 +33,11 @@ router.get('/productCart',mainController.productCart);
 router.get('/productAdd',mainController.productAdd);
 
 /* GET - formulario de registro. */
-router.get('/register/create', mainController.mostrarRegister);
+router.get('/register', mainController.mostrarRegister);
 
 /* POST - Guardar el registro del usuario en DB */ 
-router.post('/register/create', mainController.guardarRegister);
+router.post('/register', upload.single('image') ,mainController.guardarRegister);
+
 
 
 module.exports = router;
