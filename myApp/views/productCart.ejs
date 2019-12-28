@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Home Page</title>
-	<link rel="stylesheet" href="/css/productCart.css">
-</head>
+	<%- include('partials/head',{title:'Bienvenidos a +Green'});%>
+
 <body>
+	<%- include('partials/header');%>
+
 	<div class="product_list">
 		<h1>Mi carrito</h1>
 		<div class="product">
@@ -34,5 +32,9 @@
 			<h1>cart sumarry</h1>
 	
 	</div>
+
+	<%- include('partials/footer');%>
+	<%- include('partials/scripts');%>
+
 </body>
 </html>

@@ -4,37 +4,25 @@ const router = express.Router();
 
 // ************ Controller Require ************
 const mainController = require('../controllers/mainController');
-const productAddController = require('../controllers/productAddController');
-const productCartController = require('../controllers/productCartController');
-const productDetailController = require('../controllers/productDetailController');
-const registerController = require('../controllers/registerController');
-const footerController = require('../controllers/footerController');
-const headerController = require('../controllers/headerController');
 
 
 /* GET - home page. */
 router.get('/', mainController.root);
 
 /* GET - home page. */
-router.get('/productDetail',productDetailController.root);
+router.get('/productDetail',mainController.productDetail);
 
 /* GET - home page. */
-router.get('/productCart',productCartController.root);
+router.get('/productCart',mainController.productCart);
 
 /* GET - home page. */
-router.get('/productAdd',productAddController.root);
-
-/* GET - footer. */
-router.get('/footer',footerController.root);
-
-/* GET - footer. */
-router.get('/header',headerController.root);
+router.get('/productAdd',mainController.productAdd);
 
 /* GET - formulario de registro. */
-router.get('/register/create', registerController.mostrarRegister);
+router.get('/register/create', mainController.mostrarRegister);
 
 /* POST - Guardar el registro del usuario en DB */ 
-router.post('/register/create', registerController.guardarRegister);
+router.post('/register/create', mainController.guardarRegister);
 
 
 module.exports = router;

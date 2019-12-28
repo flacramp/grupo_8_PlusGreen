@@ -1,63 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Home Page</title>
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/app.css">
-	<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-	<link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
-</head>
+<%- include('partials/head',{title:'Bienvenidos a +Green'});%>
+
 
 <body>
 	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-		<div class="container">
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-		<a class="navbar-brand" href="#">
-			<img src="/images/logo.png" width="40" height="30" class="d-inline-block align-top" alt="">
-			+Green
-		</a>
-	  
-		<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-		  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Categorías <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="#">¿Quiénes somos?</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Contacto</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Registrate!</a>
-			</li>
-		  </ul>
-		  <form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-2" type="search" placeholder="Buscá lo que querés!" aria-label="Search">
-			<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">
-				<i class="fas fa-search"></i>
-			</button>
-		  </form>
-		</div>
-		<!-- User Profile -->
-	<div class="flex-wrap">
-		<a href="/account">
-			<i class="fas fa-user topBarIcons"></i>
-		</a>
-		<!-- Cart -->
-		<a href="/cart">
-			<i class="fas fa-shopping-cart topBarIcons"></i>
-		</a>
-	</div>
-		
-	</div>
-	  </nav>
+	<%- include('partials/header');%>
+
 
 	<!--Arranca el cuerpo del sitio-->
 	<div class="container mb-4">
@@ -100,15 +50,15 @@
 	<!--  Meto la segunda ROW, tiene los diferenciales del negocio-->
 	<div class="container mb-4 text-center">
 		<div class="row">
-			<div class="col-6 col-sm-4">
+			<div class="col-4">
 				<p> <i class="fas fa-credit-card"></i> Cuotas y todos los medios de pago!</p>
 			</div>
 
-			<div class="col-6 col-sm-4">
+			<div class="col-4">
 				<p> <i class="fas fa-handshake"></i> Ayudamos al medioambiente</p>
 			</div>
 
-			<div class="col-12 col-sm-4">
+			<div class="col-4">
 				<p> <i class="fas fa-shipping-fast"></i> Entrega rapida en todo el pais</p>
 			</div>
 			<!--Termino la segunda ROW-->
@@ -119,10 +69,10 @@
 	<div class="container mb-4">
 		<div class="row">
 			<!-- Arranco a crear el modulo de productos destacados-->
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="card flex mx-1 mb-4">
 					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="img-fluid" alt="...">
+						class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
 						<p class="card-text">La yerba favorita de Pablito Lescano</p>
@@ -130,10 +80,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="card flex mx-1 mb-4">
 					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="img-fluid" alt="...">
+						class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
 						<p class="card-text">La yerba favorita de Pablito Lescano</p>
@@ -141,10 +91,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="card flex mx-1">
 					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="img-fluid" alt="...">
+						class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
 						<p class="card-text">La yerba favorita de Pablito Lescano</p>
@@ -152,10 +102,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="card flex mx-1">
 					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="img-fluid" alt="...">
+						class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
 						<p class="card-text">La yerba favorita de Pablito Lescano</p>
@@ -172,7 +122,7 @@
 	<div class="container mb-2">
 		<div class="row">
 			<!--Arranco los 4 banners botones-->
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="jumbotron jumbotron-fluid">
 					<div class="container">
 						<h1 class="display-4">Banner 1</h1>
@@ -180,7 +130,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="jumbotron jumbotron-fluid">
 					<div class="container">
 						<h1 class="display-4">Banner 2</h1>
@@ -188,7 +138,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="jumbotron jumbotron-fluid">
 					<div class="container">
 						<h1 class="display-4">Banner 3</h1>
@@ -196,7 +146,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="jumbotron jumbotron-fluid">
 					<div class="container">
 						<h1 class="display-4">Banner 4</h1>
@@ -214,7 +164,7 @@
 	<div class="container mb-4">
 		<div class="row">
 			<!-- Arranco a crear el modulo de productos destacados-->
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="card flex mx-1 mb-4">
 					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
 						class="card-img-top" alt="...">
@@ -225,7 +175,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="card flex mx-1 mb-4">
 					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
 						class="card-img-top" alt="...">
@@ -236,7 +186,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="card flex mx-1">
 					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
 						class="card-img-top" alt="...">
@@ -247,7 +197,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-sm-6 col-md-3">
+			<div class="col-6 col-md-3">
 				<div class="card flex mx-1">
 					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
 						class="card-img-top" alt="...">
@@ -395,152 +345,10 @@
 	</div>
 	<!--Fin del metodo de subscripcion-->
 
-	<!-- Footer -->
+	<%- include('partials/footer');%>
+	<%- include('partials/scripts');%>
 
-
-
-	<!-- Navegación del footer -->
-
-	<!-- Footer -->
-	<footer class="page-footer font-small bg-dark nav-color">
-
-		<!-- Footer Links -->
-		<div class="container">
-
-			<!-- Grid row-->
-			<div class="row text-center d-flex justify-content-center pt-5 mb-3">
-
-				<!-- Grid column -->
-				<div class="col-md-2 mb-3">
-					<h6 class="text-uppercase font-weight-bold">
-						<a style="color:#00aca0" href="#!">Home</a>
-					</h6>
-				</div>
-				<!-- Grid column -->
-
-				<!-- Grid column -->
-				<div class="col-md-2 mb-3">
-					<h6 class="text-uppercase font-weight-bold">
-						<a style="color:#00aca0" href="#!">Trabaja con nosotros</a>
-					</h6>
-				</div>
-				<!-- Grid column -->
-
-				<!-- Grid column -->
-				<div class="col-md-2 mb-3">
-					<h6 class="text-uppercase font-weight-bold">
-						<a style="color:#00aca0" href="#!">Sobre nosotros</a>
-					</h6>
-				</div>
-				<!-- Grid column -->
-
-				<!-- Grid column -->
-				<div class="col-md-2 mb-3">
-					<h6 class="text-uppercase font-weight-bold">
-						<a style="color:#00aca0" href="#!">Mi cuenta</a>
-					</h6>
-				</div>
-				<!-- Grid column -->
-
-				<!-- Grid column -->
-				<div class="col-md-2 mb-3">
-					<h6 class="text-uppercase font-weight-bold">
-						<a style="color:#00aca0" href="#!">Ayuda</a>
-					</h6>
-				</div>
-				<!-- Grid column -->
-
-			</div>
-			<!-- Grid row-->
-
-			<!-- Grid row-->
-			<hr class="clearfix rgba-white-light footer-line d-block">
-
-			<!-- Grid row-->
-
-			<div class="container">
-
-				<div class="row d-flex text-center justify-content-center mb-md-0 mb-0 footer-line">
-
-					<!-- Grid column -->
-					<div class="col-md-12 mt-4">
-						<p style="line-height: 1.7rem">Nuestros productos +Green tiene como objetivo ofrecer la mayor
-							oferta de productos sustentables tales como alimentos, artefactos para el hogar, energia y
-							mucho mas pero siempre asegurando una excelente experiencia de compra.</p>
-					</div>
-				</div>
-
-			</div>
-			<!-- Grid column -->
-
-		</div>
-		<!-- Grid row-->
-		<hr class="clearfix rgba-white-light footer-line d-block my-3 ">
-
-		<!-- Grid row-->
-		<div class="row d-flex text-center justify-content-center mb-md-0 mb-0 footer-line">
-
-			<!-- Grid column -->
-			<div class="col-md-12 flex-center ">
-
-				<div class="mb-0 flex-center" style="text-align: center">
-
-					<!-- Facebook -->
-					<a class="fb-ic">
-						<i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
-					</a>
-					<!-- Twitter -->
-					<a class="tw-ic">
-						<i class="fab fa-twitter fa-lg white-text mr-4"> </i>
-					</a>
-					<!-- Google +-->
-					<a class="gplus-ic">
-						<i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
-					</a>
-					<!--Linkedin -->
-					<a class="li-ic">
-						<i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
-					</a>
-					<!--Instagram-->
-					<a class="ins-ic">
-						<i class="fab fa-instagram fa-lg white-text mr-4"> </i>
-					</a>
-					<!--Pinterest-->
-					<a class="pin-ic">
-						<i class="fab fa-pinterest fa-lg white-text"> </i>
-					</a>
-
-				</div>
-
-			</div>
-			<!-- Grid column -->
-
-		</div>
-		<!-- Grid row-->
-
-		</div>
-		<!-- Footer Links -->
-
-		<!-- Copyright -->
-		<div class="footer-copyright text-center py-3">© 2020 Copyright:
-			<a href="https://mdbootstrap.com/education/bootstrap/"> PlusGreen.com</a>
-		</div>
-		<!-- Copyright -->
-
-	</footer>
-
-
-
-	<!-- SCRIPTS PARA LEVANTAR ONLINE BOOSTRAP -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+ 
 </body>
 
 </html>
