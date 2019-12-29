@@ -28,6 +28,12 @@ function generateUserId(){
 	return lastUser.id+1
 }
 
+function getUserEmail(email){
+	let allUsers=getAllUsers();
+	let findUser = allUsers.find(user => user.email == email);
+	return findUser;
+}
+
 
 
 
@@ -60,6 +66,26 @@ const controller = {
 		//modificar por redirigir al login y no al index, o sino a una success page
 		res.redirect('/');
 	},
+	showLogIn: (req,res)=> {
+		res.render('login');
+	},
+	logInAttempt: (req,res) => {
+		//Existe el email?
+		let user = getUserEmail(req.body.email);
+
+		if(user == undefined){
+			res.send("Oops. No existe usuario asociado a este email. Intentalo de vuelta!")
+		} else {
+			// Comparo passwords
+			if(bcryptjs.compareSync(req.body.password, user.password)){
+				//acá debería redirigirlo al PERFIL, pero no tenemos  /account nosotros todavía
+				res.redirect('/');
+			} else {
+				res.send('Contraseña incorrecta. Intentalo de vuelta!')
+				
+			}
+				}
+	}
 	
 };
 

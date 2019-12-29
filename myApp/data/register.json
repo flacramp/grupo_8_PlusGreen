@@ -451,42 +451,18 @@
  },
  {
   "id": 51,
-  "first_name": "franco",
-  "last_name": "lacramp",
-  "email": "asdsad@safsad",
-  "password": "$2a$10$zENZ.xTv9rN2D6uz/x41RuEHBBYrMzoZn/cBnvh08cgheUa2xcLK."
- },
- {
-  "id": 52,
-  "first_name": "jero",
-  "last_name": "jero",
-  "email": "jero@jero.com",
-  "password": "$2a$10$ELN3GdrZg2pqtuPy/uNWBuE0UmbRHKQzW5yqMw9tOEuPhrZQGaFhS",
-  "image": {
-   "fieldname": "image",
-   "originalname": "rappi-logo.png",
-   "encoding": "7bit",
-   "mimetype": "image/png",
-   "destination": "C:\\Users\\Rappi\\Desktop\\Personal\\TP FINAL\\grupo_8_PlusGreen\\myApp\\routes/../public/images/profileImages",
-   "filename": "profile_image_1577653474271.png",
-   "path": "C:\\Users\\Rappi\\Desktop\\Personal\\TP FINAL\\grupo_8_PlusGreen\\myApp\\public\\images\\profileImages\\profile_image_1577653474271.png",
-   "size": 194986
-  }
- },
- {
-  "id": 53,
-  "first_name": "Jero2",
-  "last_name": "Jero2",
-  "email": "jero2@jero2.com",
-  "password": "$2a$10$//wKdfl1G7vNH6hmnAaL1uJ4TTCCsdDkQZfcp0WWIIgI29o1pm6VC",
-  "image": "profile_image_1577653541817.png"
- },
- {
-  "id": 54,
   "first_name": "jero5",
   "last_name": "jero5",
   "email": "jero5@jero5.com",
   "password": "$2a$10$tL2BUo/eJdSyekcb7hUvJ.sfRFs0alD8e9R1bHg34Zb8MwW5lNVRm",
   "image": "profile_image_1577653877735.png"
+ },
+ {
+  "id": 52,
+  "first_name": "Jero",
+  "last_name": "Robertson",
+  "email": "jero_robertson@hotmail.com",
+  "password": "$2a$10$91hl2B8ouCRhrKQ6m711FeWfw1m9zaSrQqX4cL/oGqTY5aeE5pOyO",
+  "image": "profile_image_1577662169364.png"
  }
 ]

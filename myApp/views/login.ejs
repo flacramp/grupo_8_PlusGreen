@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('partials/head',{title:'Log In - +Green'});%>
+
+	<body>
+		<%- include('partials/header');%>
+
+
+		<h1>Iniciá Sesión</h1>
+		<form action="/login" method="POST">
+			<div>
+				<label>Email</label>
+				<input type="email" name="email" placeholder="jperez@gmail.com">
+			</div>
+			<div>
+				<label>Contraseña</label>
+				<input type="password" name="password">
+			</div>
+			<div>
+				<p>¿Todavía no estás registrado? <a href="../register"> Registrate ACA!</a>
+			</div>
+			<button type="submit">Log In</button>
+		</form>
+	</body>
+
+
+	<%- include('partials/footer');%>
+	<%- include('partials/scripts');%>
+</html>
+

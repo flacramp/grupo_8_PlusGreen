@@ -37,6 +37,11 @@ router.get('/register', mainController.mostrarRegister);
 /* POST - Guardar el registro del usuario en DB */ 
 router.post('/register', upload.single('image') ,mainController.guardarRegister);
 
+/* GET - Log In. */
+router.get('/login', mainController.showLogIn);
+
+/* POST - Validacion Log In */ 
+router.post('/login',  mainController.logInAttempt);
 
 
 module.exports = router;
