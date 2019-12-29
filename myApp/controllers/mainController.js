@@ -47,7 +47,7 @@ const controller = {
 	mostrarRegister: (req, res) => {
 		res.render('register');
 	},
-	guardarRegister: (req, res, next) => {
+	guardarRegister: (req, res) => {
 		let newUserData = {
 			id: generateUserId(),
 			first_name: req.body.first_name,
@@ -58,7 +58,7 @@ const controller = {
 				};
 		storeUser(newUserData);
 		//modificar por redirigir al login y no al index, o sino a una success page
-		res.redirect('index');
+		res.redirect('/');
 	},
 	
 };

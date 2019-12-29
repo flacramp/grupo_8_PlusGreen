@@ -6,11 +6,10 @@ const multer = require('multer');
 
 const storageDisk = multer.diskStorage({
 	destination: (req, file, cb) => {
-		cb(null, __dirname + '/../../public/images/profileImages');
+		cb(null, __dirname + '/../public/images/profileImages');
 	},
 	filename: (req, file, cb) => {
         let imageFinalName = `profile_image_${Date.now()}${path.extname(file.originalname)}`;
-        // ${newUserData.first_name}-${newUserData.last_name}`;
 		cb(null, imageFinalName);
 	}
 });
