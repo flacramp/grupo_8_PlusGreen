@@ -1,16 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-	<%- include('partials/head',{title:'Bienvenidos a +Green'});%>
+	<%- include('partials/head',{title:'Log In - +Green'});%>
 
-<body>
-	<%- include('partials/header');%>
+	<body>
+		<%- include('partials/header');%>
 
-	<h1></h1>
-	<img src="/images/node.jpg" width="60%">
+<!-- Cómo mierda hacemos para que el placeholder tenga otro tamaño? -->
+		<h1>Creá tus productos!</h1>
+		<form action="/productAdd" method="POST">
+			<div>
+				<label>Nombre del producto</label>
+				<input style="font-size: 10px;" type="text" name="product_name" placeholder="Bolsa de plástico reciclable">
+			</div>
+			<div>
+				<label>Marca</label>
+				<input type="text" name="brand">
+			</div>
+			<div>
+				<label>Modelo</label>
+				<input type="text" name="model" placeholder="XR100">
+			</div>
+			<div>
+				<label>Color</label>
+				<input type="text" name="color" placeholder="Marrón Caca">
+			</div>
+			<div>
+				<!-- acordarse de cambiar esto -->
+				<label>Categoría</label>
+				<input type="text" name="id_category">
+			</div>
+			<div>
+				<label>Descripción</label>
+				<input type="text" name="description" placeholder="Lorem Ipsum">
+			</div>
+			<div>
+				<label>Precio de Lista</label>
+				<input type="number" name="list_price">
+			</div>
+			<div>
+				<label>Precio de Oferta</label>
+				<input type="number" name="sale_price">
+			</div>
+			<div>
+				<label>Stock</label>
+				<input type="number" name="stock">
+			</div>
+			<div>
+				<label>Medidas del producto</label>
+				<input type="number" name="width" placeholder="Ancho">
+				<input type="number" name="lenght" placeholder="Largo">
+				<input type="number" name="height" placeholder="Alto">
+				<input type="number" name="weight" placeholder="Peso">
+			</div>
+			<div>
+				<label>Imagenes</label>
+				<input type="file" name="image">
+			</div>
+
+			<button type="submit">Crear Producto</button>
+		</form>
+	</body>
 
 
 	<%- include('partials/footer');%>
 	<%- include('partials/scripts');%>
-
-</body>
 </html>
+

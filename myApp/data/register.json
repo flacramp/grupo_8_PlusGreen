@@ -464,5 +464,13 @@
   "email": "jero_robertson@hotmail.com",
   "password": "$2a$10$91hl2B8ouCRhrKQ6m711FeWfw1m9zaSrQqX4cL/oGqTY5aeE5pOyO",
   "image": "profile_image_1577662169364.png"
+ },
+ {
+  "id": 53,
+  "first_name": "a",
+  "last_name": "a",
+  "email": "a@a.com",
+  "password": "$2a$10$Qxn8kw7oZU0mkPfLT670i.wvYDyvwbgbBK5YRpF34OVmxOeOhyE0a",
+  "image": "profile_image_1577752784624.jpg"
  }
 ]

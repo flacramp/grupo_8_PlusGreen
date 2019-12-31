@@ -5,6 +5,7 @@ const path = require('path');
 
 // defino variabes para el register
 const userFilePath = path.join(__dirname, '../data/register.json');
+const productFilePath = path.join(__dirname, '../data/products.json');
 
 // Funciones Helper
 function getAllUsers() {
@@ -34,16 +35,60 @@ function getUserEmail(email){
 	return findUser;
 }
 
+function getAllProducts() {
+	let productFileContent = fs.readFileSync(productFilePath, 'utf-8');
+	let finalProducts = productFileContent == '' ? [] : JSON.parse(productFileContent);
+	return finalProducts;
+}
 
+
+function storeProduct(newProductData){
+	let allProducts = getAllProducts();
+	allProducts.push(newProductData);
+	fs.writeFileSync(productFilePath, JSON.stringify(allProducts, null, ' '));
+}
+
+function generateProductId(){
+	let allProducts = getAllProducts();
+	if(allProducts.length==0){
+		return 1;
+	}
+	let lastProduct=allProducts.pop();
+	return lastProduct.id+1
+}
 
 
 const controller = {
 	root: (req, res) => {
 		res.render('index');
 	},
-	productAdd: (req, res) => {
+	showProductAdd: (req, res) => {
 		res.render('productAdd');
 	},
+	createProduct: (req, res) => {
+		let newProductData = {
+			id: generateProductId(),
+			id_category: req.body.id_category,
+			product_name: req.body.product_name,
+			brand: req.body.brand,
+			model: req.body.model,
+			color: req.body.color,
+			description: req.body.description,
+			list_price: req.body.list_price,
+			sale_price: req.body.sale_price,
+			stock: req.body.stock,
+			images: req.file.filename,
+			width: req.body.width,
+			length: req.body.lenght,
+			height: req.body.height,
+			weight:req.body.weight 
+		};
+	
+		storeProduct(newProductData);
+	//modificar por redirigir al login y no al index, o sino a una success page
+		res.redirect('productAdd');
+	},
+
 	productCart: (req, res) => {
 		res.render('productCart');
 	},
@@ -82,11 +127,11 @@ const controller = {
 				res.redirect('/');
 			} else {
 				res.send('Contraseña incorrecta. Intentalo de vuelta!')
-				
+
 			}
 				}
-	}
-	
+	},
+
 };
 
 module.exports = controller;
