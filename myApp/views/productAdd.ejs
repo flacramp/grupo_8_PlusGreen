@@ -7,10 +7,10 @@
 
 <!-- Cómo mierda hacemos para que el placeholder tenga otro tamaño? -->
 		<h1>Creá tus productos!</h1>
-		<form action="/productAdd" method="POST">
+		<form action="/productAdd" method="POST" enctype='multipart/form-data'>
 			<div>
 				<label>Nombre del producto</label>
-				<input style="font-size: 10px;" type="text" name="product_name" placeholder="Bolsa de plástico reciclable">
+				<input type="text" name="product_name" placeholder="Bolsa de plástico reciclable">
 			</div>
 			<div>
 				<label>Marca</label>

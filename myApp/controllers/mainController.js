@@ -77,7 +77,7 @@ const controller = {
 			list_price: req.body.list_price,
 			sale_price: req.body.sale_price,
 			stock: req.body.stock,
-			images: req.file.filename,
+			image: req.file.filename,
 			width: req.body.width,
 			length: req.body.lenght,
 			height: req.body.height,
