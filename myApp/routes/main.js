@@ -4,16 +4,16 @@ const router = express.Router();
 const path = require('path');
 const multer = require('multer');
 
-// const storageDisk = multer.diskStorage({
-// 	destination: (req, file, cb) => {
-// 		cb(null, __dirname + '/../public/images/profileImages');
-// 	},
-// 	filename: (req, file, cb) => {
-//         let imageFinalName = `profile_image_${Date.now()}${path.extname(file.originalname)}`;
-// 		cb(null, imageFinalName);
-// 	}
-// });
-// const upload=multer({storage: storageDisk});
+const storageDiskProductImage = multer.diskStorage({
+	destination: (req, file, cb) => {
+		cb(null, __dirname + '/../public/images/productImages');
+	},
+	filename: (req, file, cb) => {
+        let imageFinalName = `product_image_${Date.now()}${path.extname(file.originalname)}`;
+		cb(null, imageFinalName);
+	}
+});
+const uploadProductImage=multer({storage: storageDiskProductImage});
 
 const storageDiskProfileImage = multer.diskStorage({
 	destination: (req, file, cb) => {
@@ -25,17 +25,6 @@ const storageDiskProfileImage = multer.diskStorage({
 	}
 });
 const uploadProfileImage=multer({storage: storageDiskProfileImage});
-
-const storageDiskProductImage = multer.diskStorage({
-	destination: (req, file, cb) => {
-		cb(null, __dirname + '/../public/images/productImages');
-	},
-	filename: (req, file, cb) => {
-        let imageFinalName = `product_image_${Date.now()}${path.extname(file.originalname)}`;
-		cb(null, imageFinalName);
-	}
-});
-const uploadProductImage=multer({storage: storageDiskProductImage});
 
 
 
@@ -57,7 +46,7 @@ router.get('/productCart',mainController.productCart);
 router.get('/productAdd',mainController.showProductAdd);
 
 /* POST - Creacion de producto. */
-router.post('/productAdd', uploadProductImage.any('images'),mainController.createProduct);
+router.post('/productAdd', uploadProductImage.single('image'),mainController.createProduct);
 
 /* GET - formulario de registro. */
 router.get('/register', mainController.mostrarRegister);

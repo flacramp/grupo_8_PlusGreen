@@ -2,7 +2,6 @@ const fs = require('fs');
 const bcryptjs = require('bcryptjs');
 const path = require('path');
 
-
 // defino variabes para el register
 const userFilePath = path.join(__dirname, '../data/register.json');
 const productFilePath = path.join(__dirname, '../data/products.json');
@@ -66,6 +65,8 @@ const controller = {
 		res.render('productAdd');
 	},
 	createProduct: (req, res) => {
+		console.log(req.file);
+
 		let newProductData = {
 			id: generateProductId(),
 			id_category: req.body.id_category,
@@ -81,9 +82,9 @@ const controller = {
 			width: req.body.width,
 			length: req.body.lenght,
 			height: req.body.height,
-			weight:req.body.weight 
+			weight: req.body.weight,
 		};
-	
+
 		storeProduct(newProductData);
 	//modificar por redirigir al login y no al index, o sino a una success page
 		res.redirect('productAdd');
@@ -99,6 +100,8 @@ const controller = {
 		res.render('register');
 	},
 	guardarRegister: (req, res) => {
+		console.log(req.file);
+
 		let newUserData = {
 			id: generateUserId(),
 			first_name: req.body.first_name,
@@ -133,5 +136,6 @@ const controller = {
 	},
 
 };
+
 
 module.exports = controller;

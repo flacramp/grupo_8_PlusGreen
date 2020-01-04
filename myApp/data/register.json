@@ -451,26 +451,10 @@
  },
  {
   "id": 51,
-  "first_name": "jero5",
-  "last_name": "jero5",
-  "email": "jero5@jero5.com",
-  "password": "$2a$10$tL2BUo/eJdSyekcb7hUvJ.sfRFs0alD8e9R1bHg34Zb8MwW5lNVRm",
-  "image": "profile_image_1577653877735.png"
- },
- {
-  "id": 52,
-  "first_name": "Jero",
-  "last_name": "Robertson",
-  "email": "jero_robertson@hotmail.com",
-  "password": "$2a$10$91hl2B8ouCRhrKQ6m711FeWfw1m9zaSrQqX4cL/oGqTY5aeE5pOyO",
-  "image": "profile_image_1577662169364.png"
- },
- {
-  "id": 53,
-  "first_name": "a",
-  "last_name": "a",
-  "email": "a@a.com",
-  "password": "$2a$10$Qxn8kw7oZU0mkPfLT670i.wvYDyvwbgbBK5YRpF34OVmxOeOhyE0a",
-  "image": "profile_image_1577752784624.jpg"
+  "first_name": "Carlos",
+  "last_name": "Juarez",
+  "email": "Cjuarez@gmail.com",
+  "password": "$2a$10$Iu3WLuUa.mdkt2iCE/VIWuLAEbIHwhVUnY3AHdXfGuU9sJcEwUUyy",
+  "image": "profile_image_1578097854192.HEIC"
  }
 ]
