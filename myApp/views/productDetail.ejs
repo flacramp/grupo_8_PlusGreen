@@ -38,10 +38,16 @@
 						</ul>
 					</div>
 					<div class="col-6">
-						<h4><strike>$ <%= product.list_price %></strike></h4>
 						<% if(product.sale_price != null){ %>
-								<h4 style="color: red;">¡Oferta!: $ <%= product.sale_price %></h4>
-								<%}%>
+							<h4><strike>$ <%= product.list_price %></strike></h4>
+							<div class="col-12 d-flex justify-content-start" style="padding-left: 0px;">
+								<h4 style="color: red; padding-right: 3px;">¡Oferta!:</h4> 
+								<h4>$<%= product.sale_price %></h4>
+							</div>
+						<%}else{%>
+							<h4>$ <%= product.list_price %></h4>
+							<%}%>
+
 						<p>Hasta 12 cuotas sin interes</p>
 						<p>Recibilo en 2 dias</p>
 						<p>Tu compra ayuda al medioambiente</p>
