@@ -37,7 +37,7 @@ const mainController = require('../controllers/mainController');
 router.get('/', mainController.root);
 
 /* GET - home page. */
-router.get('/productDetail',mainController.productDetail);
+router.get('/productDetail/:id',mainController.productDetail);
 
 /* GET - home page. */
 router.get('/productCart',mainController.productCart);
@@ -47,6 +47,9 @@ router.get('/productAdd',mainController.showProductAdd);
 
 /* POST - Creacion de producto. */
 router.post('/productAdd', uploadProductImage.single('image'),mainController.createProduct);
+
+/* POST - Borrar producto. */
+router.delete('/productDelete/:id', mainController.deleteProduct);
 
 /* GET - formulario de registro. */
 router.get('/register', mainController.mostrarRegister);

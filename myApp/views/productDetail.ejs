@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<%- include('partials/head',{title:'Bienvenidos a +Green'});%>
+	<%- include('partials/head',{title: "producto"});%>
 
 <body>
 	<%- include('partials/header');%>
@@ -12,7 +12,7 @@
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
 						<li class="breadcrumb-item"><a href="#">Library</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Salsas de Tomate</li>
+						<li class="breadcrumb-item active" aria-current="page"><%= `${product.id_category}` %></li>
 					</ol>
 				</nav>
 			</div>
@@ -21,25 +21,27 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-6">
-				<img src="/images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg" class="img-fluid" alt="Responsive image">		
+				<img src="/images/productImages/<%= product.image %>" class="img-fluid" alt="Responsive image">		
 			</div>
 			<div class="col-6">
 				<div class="row">
 					<div class="col-12">
-						<h2>Titulo del producto</h2>
+						<h2><%= product.product_name %></h2>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-6">
-						<ol>
-							<li>Atributo 1</li>
-							<li>Atributo 2</li>
-							<li>Atributo 3</li>
-						</ol>
+						<ul>
+							<li><%= product.brand %></li>
+							<li><%= product.model %></li>
+							<li><%= product.color %></li>
+						</ul>
 					</div>
 					<div class="col-6">
-						<h4>Precio anterior $2999</h4>
-						<h4>Precio Oferta $1999</h4>
+						<h4><strike>$ <%= product.list_price %></strike></h4>
+						<% if(product.sale_price != null){ %>
+								<h4 style="color: red;">¡Oferta!: $ <%= product.sale_price %></h4>
+								<%}%>
 						<p>Hasta 12 cuotas sin interes</p>
 						<p>Recibilo en 2 dias</p>
 						<p>Tu compra ayuda al medioambiente</p>
@@ -49,6 +51,7 @@
 					<div class="col-12 d-flex justify-content-end">
 						<button type="button" class="btn btn-secondary m-2">Agregar al Carrito</button>
 						<button type="button" class="btn btn-primary m-2">Comprar</button>
+						<form action="/productDetail/<%= product.id %>/borrar?_method=DELETE" method="POST" ><button type="button" class="btn btn-primary m-2">Borrar</button></form>
 					</div>
 				</div>
 			</div>	

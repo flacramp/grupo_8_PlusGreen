@@ -2,6 +2,7 @@ const fs = require('fs');
 const bcryptjs = require('bcryptjs');
 const path = require('path');
 
+
 // defino variabes para el register
 const userFilePath = path.join(__dirname, '../data/register.json');
 const productFilePath = path.join(__dirname, '../data/products.json');
@@ -56,6 +57,14 @@ function generateProductId(){
 	return lastProduct.id+1
 }
 
+function getProductById(id){
+	let products = getAllProducts();
+	let productToFind = products.find(oneProduct => oneProduct.id==id)
+	return productToFind;
+}
+
+
+
 
 const controller = {
 	root: (req, res) => {
@@ -94,8 +103,16 @@ const controller = {
 		res.render('productCart');
 	},
 	productDetail: (req, res) => {
-		res.render('productDetail');
+		let fetchProduct = getProductById(req.params.id);
+		res.render('productDetail', { product: fetchProduct});
 	},
+	deleteProduct: (req,res) => {
+		let allProducts = getAllProducts();
+		let listadoProductos = allProducts.filter(oneProduct => oneProduct.id != req.params.id);
+		fs.writeFileSync(productFilePath, JSON.stringify(listadoProductos, null, ' '));
+		res.redirect('/');
+	},
+
 	mostrarRegister: (req, res) => {
 		res.render('register');
 	},
