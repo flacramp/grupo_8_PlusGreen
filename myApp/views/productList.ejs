@@ -21,118 +21,22 @@
 	<div class="container mb-4">
 		<!-- Primera row del listado de productos-->
 		<div class="row">
+			<% product.forEach(function (oneProduct) { %>
 			<div class="col-6 col-md-3" > 
-				<a href="www.google.com.ar">
+				<a href="/productDetail/<%=`${oneProduct.id}`%>">
 					<div class="card flex mx-1 mb-4" >
-						<img src="images/cat.png"	class="card-img-top img-circle" alt="Responsive Image" >
+						<img src="/./images/productImages/<%=`${oneProduct.image}`%>"	class="card-img-top img-circle" alt="Responsive Image" >
 							
 						<div class="card-body" style="font-size: 14px ">
-							<h5 class="card-title" style="font-size: 16px">Nombre de item</h5>
-							<p>$$$$$</p>
+							<h5 class="card-title" style="font-size: 16px"><%=`${oneProduct.product_name}`%></h5>
+							<p> <%=`${oneProduct.list_price}`%> </p>
 						</div>
 					</div>
 				</a>
 			</div>
-			<div class="col-6 col-md-3">
-				<a href="www.google.com.ar">
-					<div class="card flex mx-1 mb-4">
-						<img src="images/cat.png"
-							class="card-img-top" alt="...">
-							
-						<div class="card-body" style="font-size: 14px">
-							<h5 class="card-title" style="font-size: 16px">Nombre de item</h5>
-							<p>$$$$$</p>
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="col-6 col-md-3">
-				<a href="www.google.com.ar">
-					<div class="card flex mx-1 mb-4">
-						<img src="images/cat.png"
-							class="card-img-top" alt="...">
-							
-						<div class="card-body" style="font-size: 14px">
-							<h5 class="card-title" style="font-size: 16px">Nombre de item</h5>
-							<p>$$$$$</p>
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="col-6 col-md-3">
-				<a href="www.google.com.ar">
-					<div class="card flex mx-1 mb-4">
-						<img src="images/cat.png"
-							class="card-img-top" alt="...">
-							
-						<div class="card-body" style="font-size: 14px">
-							<h5 class="card-title" style="font-size: 16px">Nombre de item</h5>
-							<p>$$$$$</p>
-						</div>
-					</div>
-				</a>
-			</div>
+			<% }) %>
 		</div>
 	</div>
-	<!-- Terminada la primera row de productos-->
-		<!-- Meto una fila para el row de productos-->
-		<div class="container mb-4">
-			<!-- Primera row del listado de productos-->
-			<div class="row">
-				<div class="col-6 col-md-3" > 
-					<a href="www.google.com.ar">
-						<div class="card flex mx-1 mb-4" >
-							<img src="images/cat.png"	class="card-img-top img-circle" alt="Responsive Image" >
-								
-							<div class="card-body" style="font-size: 14px ">
-								<h5 class="card-title" style="font-size: 16px">Nombre de item</h5>
-								<p>$$$$$</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-6 col-md-3">
-					<a href="www.google.com.ar">
-						<div class="card flex mx-1 mb-4">
-							<img src="images/cat.png"
-								class="card-img-top" alt="...">
-								
-							<div class="card-body" style="font-size: 14px">
-								<h5 class="card-title" style="font-size: 16px">Nombre de item</h5>
-								<p>$$$$$</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-6 col-md-3">
-					<a href="www.google.com.ar">
-						<div class="card flex mx-1 mb-4">
-							<img src="images/cat.png"
-								class="card-img-top" alt="...">
-								
-							<div class="card-body" style="font-size: 14px">
-								<h5 class="card-title" style="font-size: 16px">Nombre de item</h5>
-								<p>$$$$$</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-6 col-md-3">
-					<a href="www.google.com.ar">
-						<div class="card flex mx-1 mb-4">
-							<img src="images/cat.png"
-								class="card-img-top" alt="...">
-								
-							<div class="card-body" style="font-size: 14px">
-								<h5 class="card-title" style="font-size: 16px">Nombre de item</h5>
-								<p>$$$$$</p>
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-		<!-- Terminada la primera row de productos-->
 
 
 	<%- include('partials/footer');%>

@@ -106,6 +106,11 @@ const controller = {
 		let fetchProduct = getProductById(req.params.id);
 		res.render('productDetail', { product: fetchProduct});
 	},
+	productList: (req, res) => {
+		let fetchProduct = getAllProducts();
+		res.render('productList', { product: fetchProduct});
+	//	res.send(fetchProduct);	
+	},
 	deleteProduct: (req,res) => {
 		let allProducts = getAllProducts();
 		let listadoProductos = allProducts.filter(oneProduct => oneProduct.id != req.params.id);
@@ -150,9 +155,6 @@ const controller = {
 
 			}
 				}
-	},
-	showProductList: (req,res)=> {
-		res.render('productList');
 	},
 };
 
