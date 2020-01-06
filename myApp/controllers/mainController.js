@@ -78,8 +78,8 @@ const controller = {
 
 		let newProductData = {
 			id: generateProductId(),
-			id_category: req.body.id_category,
-			product_name: req.body.product_name,
+			category: req.body.category,
+			name: req.body.name,
 			brand: req.body.brand,
 			model: req.body.model,
 			color: req.body.color,
