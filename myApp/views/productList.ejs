@@ -26,8 +26,9 @@
 				<a style="color: grey" href="/productDetail/<%=`${oneProduct.id}`%>">
 					<div class="card flex mx-1 mb-4" >
 						<img src="/./images/productImages/<%=`${oneProduct.image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
-					<div class="card-body" style="font-size: 14px ">
-						<h5 class="card-title" style="font-size: 16px"><%=`${oneProduct.product_name}`%></h5>
+					
+						<div class="card-body" style="font-size: 14px ">
+						<h5 class="card-title" style="font-size: 16px"><%=`${oneProduct.name}`%></h5>
 						<% if(oneProduct.sale_price == null) { %>
 							<p style="font-weight: bold; font-size: 18px"> $ <%=`${oneProduct.list_price}`%> </p>
 						<% } else{ %>
