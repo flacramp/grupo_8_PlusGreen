@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-	<%- include('partials/head',{title:'Log In - +Green'});%>
+	<%- include('partials/head',{title:'Formulario de creacion de producto'});%>
 
 <body>
 		<%- include('partials/header');%>
-
+<div class="container mb-2 mt-2">
 <form action="/productAdd" method="POST" enctype="multipart/form-data">
 	<div class="form-row">
 		<div class="form-group col-12">
@@ -43,7 +43,7 @@
 	</div>
 	<div class="form-row">
 		<div class="form-group col-12 custom-file">
-			<label class="custom-file-label" for="customFile">Seleccione una imagen para su producto</label>
+			<label class="custom-file-label" for="customFile">Seleccione una imagen</label>
 			<input type="file" name="image" class="form-control custom-file-input">
 		</div>
 	</div>
@@ -89,8 +89,9 @@
 			<input type="number" name="stock" class="form-control" placeholder="10">
 		</div>
 	</div>
-	<button type="submit" class="btn btn-primary">Crear!</button>
+	<button type="submit" class="btn btn-primary">Crear</button>
 </form>
+</div>
 	<%- include('partials/footer');%>
 	<%- include('partials/scripts');%>
 </body>	
