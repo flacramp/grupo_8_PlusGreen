@@ -151,8 +151,9 @@ const controller = {
 			}
 				}
 	},
-
+	showProductList: (req,res)=> {
+		res.render('productList');
+	},
 };
-
 
 module.exports = controller;

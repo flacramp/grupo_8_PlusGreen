@@ -456,5 +456,13 @@
   "email": "Cjuarez@gmail.com",
   "password": "$2a$10$Iu3WLuUa.mdkt2iCE/VIWuLAEbIHwhVUnY3AHdXfGuU9sJcEwUUyy",
   "image": "profile_image_1578097854192.HEIC"
+ },
+ {
+  "id": 52,
+  "first_name": "Ignacio",
+  "last_name": "Danunzio",
+  "email": "idanunzio@gmail.com",
+  "password": "$2a$10$TtV0EMPm.inG6JdEePcdHO8rqoNS/SRiwmFVx3g31vqCw2qmB3kse",
+  "image": "profile_image_1578254851019.jpg"
  }
 ]

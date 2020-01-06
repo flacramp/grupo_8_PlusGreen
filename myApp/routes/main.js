@@ -63,5 +63,8 @@ router.get('/login', mainController.showLogIn);
 /* POST - Validacion Log In */ 
 router.post('/login',  mainController.logInAttempt);
 
+/* GET - Listado de productos */
+router.get('/productList', mainController.showProductList); 
+
 
 module.exports = router;
