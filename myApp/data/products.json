@@ -1700,23 +1700,6 @@
         "weight": 8
     },
     {
-        "id": 100,
-        "category": "Electronics",
-        "name": "Chicken - Soup Base",
-        "brand": "Mitsubishi",
-        "model": "L300",
-        "color": "Yellow",
-        "description": "amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum",
-        "list_price": 15827.51,
-        "sale_price": "Syntax error in formula 'if this > list_price then list_price else this'",
-        "stock": 40,
-        "image": "cat.png",
-        "width": 185,
-        "length": 64,
-        "height": 333,
-        "weight": 7
-    },
-    {
         "id": 101,
         "category": "Celulares",
         "name": "Bolsa",
