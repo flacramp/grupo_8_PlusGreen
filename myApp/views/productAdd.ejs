@@ -2,67 +2,97 @@
 <html lang="en">
 	<%- include('partials/head',{title:'Log In - +Green'});%>
 
-	<body>
+<body>
 		<%- include('partials/header');%>
 
-<!-- Cómo mierda hacemos para que el placeholder tenga otro tamaño? -->
-		<h1>Creá tus productos!</h1>
-		<form action="/productAdd" method="POST" enctype="multipart/form-data">
-			<div>
-				<label>Nombre del producto</label>
-				<input type="text" name="product_name" placeholder="Bolsa de plástico reciclable">
-			</div>
-			<div>
-				<label>Marca</label>
-				<input type="text" name="brand">
-			</div>
-			<div>
-				<label>Modelo</label>
-				<input type="text" name="model" placeholder="XR100">
-			</div>
-			<div>
-				<label>Color</label>
-				<input type="text" name="color" placeholder="Marrón Caca">
-			</div>
-			<div>
-				<!-- acordarse de cambiar esto -->
-				<label>Categoría</label>
-				<input type="text" name="id_category">
-			</div>
-			<div>
-				<label>Descripción</label>
-				<input type="text" name="description" placeholder="Lorem Ipsum">
-			</div>
-			<div>
-				<label>Precio de Lista</label>
-				<input type="number" name="list_price">
-			</div>
-			<div>
-				<label>Precio de Oferta</label>
-				<input type="number" name="sale_price">
-			</div>
-			<div>
-				<label>Stock</label>
-				<input type="number" name="stock">
-			</div>
-			<div>
-				<label>Medidas del producto</label>
-				<input type="number" name="width" placeholder="Ancho">
-				<input type="number" name="lenght" placeholder="Largo">
-				<input type="number" name="height" placeholder="Alto">
-				<input type="number" name="weight" placeholder="Peso">
-			</div>
-			<div>
-				<label>Imagenes</label>
-				<input type="file" name="image">
-			</div>
-
-			<button type="submit">Crear Producto</button>
-		</form>
-	</body>
-
-
+<form action="/productAdd" method="POST" enctype="multipart/form-data">
+	<div class="form-row">
+		<div class="form-group col-12">
+			<h2>Ingrese los datos del producto</h2>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-12">
+			<label>Nombre de Producto</label>
+			<input type="text" name="product_name" class="form-control" placeholder="Ej: Salsa de Tomate Oganica">
+		</div>
+	</div>
+	<div class="form-row">
+	    <div class="form-group col-12 col-sm-6 col-md-3">
+			 <label>Marca</label>
+			 <input type="text" name="brand" class="form-control" placeholder="Ej: LifeValue">
+		</div>
+	    <div class="form-group col-12 col-sm-6 col-md-3">
+		     <label>Modelo</label>
+		     <input type="text" name="model" class="form-control" placeholder="Ej: 150Ml">
+		</div>
+		<div n="form-group col-12 col-sm-6 col-md-3">
+			<label>Categoria</label>
+			<input type="text" name="id_category" class="form-control" placeholder="Ej:Salsas de Tomate">
+		</div>
+		<div class="form-group col-12 col-sm-6 col-md-3">
+			<label>Color</label>
+			<input type="text" name="color" class="form-control" placeholder="Ej: Rojo">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-12">
+			<label>Descripcion</label>
+			<input type="text" name="description" class="form-control" placeholder="Ej:La salsa de tomate organica es la mejor para tu cuerpaaa, tiene muchas cosas ricas que te hacen sano fuerte y bonito">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-12 custom-file">
+			<label class="custom-file-label" for="customFile">Seleccione una imagen para su producto</label>
+			<input type="file" name="image" class="form-control custom-file-input">
+		</div>
+	</div>
+	<div class="form-row mt-2">
+		<div class="form-group col-12">
+			<h4>Ingrese las medidas de la caja</h4>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-12 col-sm-6 col-md-3">
+			<label>Ancho</label>
+			<input type="number" name="width" class="form-control" placeholder="Ej: 10">
+		</div>
+		<div class="form-group col-12 col-sm-6 col-md-3">
+			<label>Alto</label>
+			<input type="number" name="height" class="form-control" placeholder="Ej: 45">
+		</div>
+		<div class="form-group col-12 col-sm-6 col-md-3">
+			<label>Profundidad</label>
+			<input type="number" name="lenght" class="form-control" placeholder="Ej: 15">
+		</div>
+		<div class="form-group col-12 col-sm-6 col-md-3">
+			<label>Peso</label>
+			<input type="number" name="weight" class="form-control" placeholder="Ej: 15KG">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-12">
+		<h4>Ingrese los datos para la venta</h4>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-12 col-sm-4">
+			<label>Precio de Lista</label>
+			<input type="number" name="list_price" class="form-control" placeholder="Ej:$3500">
+		</div>
+		<div class="form-group col-12 col-sm-4">
+			<label>Precio de Venta</label>
+			<input type="number" name="sale_price" class="form-control" placeholder="Ej:$2900">
+		</div>
+		<div class="form-group col-12 col-sm-4">
+			<label>Stock</label>
+			<input type="number" name="stock" class="form-control" placeholder="10">
+		</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Crear!</button>
+</form>
 	<%- include('partials/footer');%>
 	<%- include('partials/scripts');%>
+</body>	
 </html>
 

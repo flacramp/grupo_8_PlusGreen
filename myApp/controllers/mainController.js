@@ -129,7 +129,7 @@ const controller = {
 				};
 		storeUser(newUserData);
 		//modificar por redirigir al login y no al index, o sino a una success page
-		res.redirect('/');
+		res.send("Registro exitoso! Bienvenido a +Green :)");
 	},
 	showLogIn: (req,res)=> {
 		res.render('login');
