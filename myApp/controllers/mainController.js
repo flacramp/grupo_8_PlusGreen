@@ -100,7 +100,8 @@ const controller = {
 	},
 
 	productCart: (req, res) => {
-		res.render('productCart');
+		let fetchProduct = getAllProducts();
+		res.render('productCart', { product: fetchProduct });
 	},
 	productDetail: (req, res) => {
 		let fetchProduct = getProductById(req.params.id);
