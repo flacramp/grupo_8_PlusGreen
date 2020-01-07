@@ -68,7 +68,8 @@ function getProductById(id){
 
 const controller = {
 	root: (req, res) => {
-		res.render('index');
+		let fetchProduct = getAllProducts();
+		res.render('index', { product: fetchProduct});
 	},
 	showProductAdd: (req, res) => {
 		res.render('productAdd');

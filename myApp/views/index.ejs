@@ -65,57 +65,32 @@
 		</div>
 	</div>
 
-	<!-- Meto una fila para el row de productos-->
-	<div class="container mb-4">
-		<div class="row">
-			<!-- Arranco a crear el modulo de productos destacados-->
-			<div class="col-6 col-md-3">
-				<div class="card flex mx-1 mb-4">
-					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
-						<p class="card-text">La yerba favorita de Pablito Lescano</p>
-						<a href="#" class="btn btn-primary">Ver Producto</a>
+
+<!-- Meto una fila para el row de productos-->
+<div class="container mb-4">
+	<!-- Primera row del listado de productos-->
+	<div class="row">
+		<%for(var j=1; j<5; j++){%>
+			<div class="col-6 col-md-3"> 
+				<a style="color: grey" href="/productDetail/<%=`${product[j].id}`%>"> 
+					<div class="card flex mx-1 mb-4">
+						<img src="/./images/productImages/<%=`${product[j].image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
+					
+						<div class="card-body" style="font-size: 14px; height: 150px; width: 200px">
+							<h5 class="card-title" style="font-size: 16px"><%=`${product[j].name}`%></h5>
+							<% if(product[j].sale_price == null) { %>
+								<p style="font-weight: bold; font-size: 18px"> $ <%=`${product[j].list_price}`%> </p>
+							<% } else{ %>
+								<strike> $ <%=`${product[j].list_price}`%>  </strike>
+								<p style="color: red; font-weight: bold; font-size: 18px">Oferta! $<%= `${product[j].sale_price}`%> </p>
+							<%} %>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div class="col-6 col-md-3">
-				<div class="card flex mx-1 mb-4">
-					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
-						<p class="card-text">La yerba favorita de Pablito Lescano</p>
-						<a href="#" class="btn btn-primary">Ver Producto</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-6 col-md-3">
-				<div class="card flex mx-1">
-					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
-						<p class="card-text">La yerba favorita de Pablito Lescano</p>
-						<a href="#" class="btn btn-primary">Ver Producto</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-6 col-md-3">
-				<div class="card flex mx-1">
-					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
-						<p class="card-text">La yerba favorita de Pablito Lescano</p>
-						<a href="#" class="btn btn-primary">Ver Producto</a>
-					</div>
-				</div>
-			</div>
-			<!--Terminado modulo de productos destacados-->
+				</a>
 		</div>
+		<% } %>
 	</div>
+</div>
 	<!-- Terminado el row de productos-->
 
 	<!--  Meto ROW creo 4 banners-->
@@ -161,57 +136,30 @@
 
 
 	<!-- Meto una fila para el row de productos-->
-	<div class="container mb-4">
-		<div class="row">
-			<!-- Arranco a crear el modulo de productos destacados-->
-			<div class="col-6 col-md-3">
-				<div class="card flex mx-1 mb-4">
-					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
-						<p class="card-text">La yerba favorita de Pablito Lescano</p>
-						<a href="#" class="btn btn-primary">Ver Producto</a>
+<div class="container mb-4">
+	<!-- Primera row del listado de productos-->
+	<div class="row">
+		<%for(var j=98; j<102; j++){%>
+			<div class="col-6 col-md-3"> 
+				<a style="color: grey" href="/productDetail/<%=`${product[j].id}`%>"> 
+					<div class="card flex mx-1 mb-4">
+						<img src="/./images/productImages/<%=`${product[j].image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
+					
+						<div class="card-body" style="font-size: 14px; height: 150px; width: 200px">
+							<h5 class="card-title" style="font-size: 16px"><%=`${product[j].name}`%></h5>
+							<% if(product[j].sale_price == null) { %>
+								<p style="font-weight: bold; font-size: 18px"> $ <%=`${product[j].list_price}`%> </p>
+							<% } else{ %>
+								<strike> $ <%=`${product[j].list_price}`%>  </strike>
+								<p style="color: red; font-weight: bold; font-size: 18px">Oferta! $<%= `${product[j].sale_price}`%> </p>
+							<%} %>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div class="col-6 col-md-3">
-				<div class="card flex mx-1 mb-4">
-					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
-						<p class="card-text">La yerba favorita de Pablito Lescano</p>
-						<a href="#" class="btn btn-primary">Ver Producto</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-6 col-md-3">
-				<div class="card flex mx-1">
-					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
-						<p class="card-text">La yerba favorita de Pablito Lescano</p>
-						<a href="#" class="btn btn-primary">Ver Producto</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-6 col-md-3">
-				<div class="card flex mx-1">
-					<img src="images/yerba-mate-mathienzo-seleccion-especial-500grs-D_NQ_NP_963563-MLA31632642441_072019-F.jpg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Yerba Mate "Mathienzo"</h5>
-						<p class="card-text">La yerba favorita de Pablito Lescano</p>
-						<a href="#" class="btn btn-primary">Ver Producto</a>
-					</div>
-				</div>
-			</div>
-			<!--Terminado modulo de productos destacados-->
+				</a>
 		</div>
+		<% } %>
 	</div>
-	<!-- Terminado el row de productos-->
+</div>
 
 
 	<!--Sumo Row para crear el teaser-->
