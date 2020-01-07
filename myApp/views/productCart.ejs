@@ -5,32 +5,55 @@
 <body>
 	<%- include('partials/header');%>
 
-	<div class="product_list">
-		<h1>Mi carrito</h1>
-		<div class="product">
-				<img class="image" src="/images/producto1.png" >
-		<div class="descripcion">
-					<h2>Nombre del producto</h2>
-					<p>Descripción corta del producto</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h2>Mi Carrito</h2>
+			</div>
 		</div>
-		<select name="selector" class="selector_cantidad">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option title="5">Eliminar</option>
-		</select>
-		</div>
-		<div class="monto">
-			<h1>$$$$$</h1>
-		</div>
-
 	</div>
 
-	<div class="cart_summary">
+	<div class="container">
+		<div class="row">
 
-			<h1>cart sumarry</h1>
-	
+			<div class="col-12 col-sm-8">
+				<div class="jumbotron jumbotron-fluid" style="padding: 0px;">
+					<div class="container">
+						<div class="row">
+						<div class="col-12 col-sm-12 col-md-4 d-flex align-items-center">
+						 <img src="/images/productImages/<%= product[1].image %>" class="img-thumbnail">
+						</div>
+						<div class="col-12 col-sm-12 col-md-4 d-flex align-items-center justify-content-center">
+						 <h2><%=product[1].name%></h2>
+						</div>
+						<div class="col-12 col-sm-6 col-md-2 d-flex align-items-center justify-content-center">
+						<select name="select">
+							<option value="value1">1 Unidad</option>
+							<option value="value2">2 Unidades</option>
+							<option value="value3">3 Unidades</option>
+						</select>
+						</div>
+						<div class="col-12 col-sm-6 col-md-2 d-flex align-items-center justify-content-center">
+						<p>Precio $<%=product[1].sale_price%></p>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-4">
+				<div class="jumbotron jumbotron-fluid"style="padding: 0px;">
+					<div class="container">
+						<h4>Resumen de Compra</h4>
+						<p>Subtotal $<%=product[1].sale_price%></p>
+						<p>Descuentos $0</p>
+						<h4>Total $<%=product[1].sale_price%></h4>
+					</div>
+				</div>
+				<button type="button" class="btn btn-secondary m-2">Seguir Comprando</button>
+				<button type="button" class="btn btn-primary m-2">Continuar</button>
+			</div>
+
+		</div>
 	</div>
 
 	<%- include('partials/footer');%>

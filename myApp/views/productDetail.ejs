@@ -2,14 +2,14 @@
 <html lang="en">
 	<%- include('partials/head',{title: "producto"});%>
 
-<body>
+<body class="bg-light">
 	<%- include('partials/header');%>
 
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
 				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb">
+					<ol class="breadcrumb bg-white">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
 						<li class="breadcrumb-item active" aria-current="page"><%= `${product.category}` %></li>
 					</ol>
@@ -17,14 +17,14 @@
 			</div>
 		</div>
 	</div>
-	<div class="container border border-secondary">
+	<div class="container bg-white border border-secondary">
 		<div class="row">
-			<div class="col-12 col-sm-6">
+			<div class="col-12 col-sm-8 img-thumbnail border-secondary">
 				<img src="/images/productImages/<%= product.image %>" class="img-fluid" alt="Responsive image">		
 			</div>
-			<div class="col-12 col-sm-6">
+			<div class="col-12 col-sm-4 ">
 				<div class="row">
-					<div class="col-12">
+					<div class="col-12 text-center pb-4 pt-4">
 						<h2><%= product.name %></h2>
 					</div>
 				</div>
@@ -36,10 +36,10 @@
 					</div>
 				</div>
 				<div class="row">	
-					<div class="col-12 col-sm-12 col- justify-content-end text-right">
+					<div class="col-12 col-sm-12 col- justify-content-start text-left pt-4">
 						<% if(product.sale_price != null){ %>
 							<h4><strike>$ <%= product.list_price %></strike></h4>
-							<div class="col-12 d-flex justify-content-end text-right" style="padding-left: 0px;">
+							<div class="col-12 d-flex justify-content-start text-left" style="padding-left: 0px;">
 								<h4 style="color: red; padding-right: 3px;">¡Oferta!:</h4> 
 								<h4>$<%= product.sale_price %></h4>
 							</div>
@@ -49,7 +49,7 @@
 							<p>Hasta 12 cuotas sin interes</p>
 						<p>Recibilo en 2 dias</p>
 						<p>Tu compra ayuda al medioambiente</p>
-					</div>npm
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-12 d-flex justify-content-end">
@@ -75,11 +75,11 @@
 			</div>	
 		</div>
 	</div>
-	<div class="container bg-secondary">
+	<div class="container bg-white border border-secondary">
 		<div class="row">
 			<div class="col-12">
-				<h2 style="color: white">Descripcion de producto</h2>
-				<p style="color: white"><%= product.description %></p>
+				<h2>Descripcion de producto</h2>
+				<p><%= product.description %></p>
 			</div>
 		</div>
 	</div>
