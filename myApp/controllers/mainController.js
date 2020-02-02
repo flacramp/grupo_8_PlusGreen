@@ -35,6 +35,12 @@ function getUserEmail(email){
 	return findUser;
 }
 
+function getUserById(id){
+	let allUsers=getAllUsers();
+	let findUser = allUsers.find(user => user.id == id);
+	return findUser;
+}
+
 function getAllProducts() {
 	let productFileContent = fs.readFileSync(productFilePath, 'utf-8');
 	let finalProducts = productFileContent == '' ? [] : JSON.parse(productFileContent);
@@ -69,6 +75,7 @@ function getProductById(id){
 const controller = {
 	root: (req, res) => {
 		let fetchProduct = getAllProducts();
+		let userLogged = getUserById(req.session.userId);
 		res.render('index', { product: fetchProduct});
 	},
 	showProductAdd: (req, res) => {
@@ -134,9 +141,20 @@ const controller = {
 			password: bcryptjs.hashSync(req.body.password, 10),
 			image: req.file.filename,
 				};
-		storeUser(newUserData);
+		let newUser = storeUser(newUserData);
+
+		// Seteamos ID de session para el autologueo
+		req.session.userId = newUser.id;
+
+		//Seteo la cookie para mantener el login
+		res.cookie('userCookie', newUser.id, {maxAge: 60000 * 60 * 24 * 30});
+
+		// redirecciono ya logueado al perfil
+		return res.redirect('/register/profile')
+
 		//modificar por redirigir al login y no al index, o sino a una success page
-		res.send("Registro exitoso! Bienvenido a +Green :)");
+		// res.send("Registro exitoso! Bienvenido a +Green :)");
+	
 	},
 	showLogIn: (req,res)=> {
 		res.render('login');
