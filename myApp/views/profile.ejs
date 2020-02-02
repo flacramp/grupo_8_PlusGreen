@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head',{title: "Profile"});%>
+
+<body>
+    <%- include('partials/header');%>
+
+<h2>Hola <%= userLogged.full_name %></h2>
+<img src="/images/avatars/<%= userLogged.image%>" width="100%">
+
+
+    <%- include('partials/footer');%>
+    <%- include('partials/scripts');%>
+    
+</body>
+</html>

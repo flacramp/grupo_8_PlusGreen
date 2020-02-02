@@ -66,5 +66,7 @@ router.post('/login',  mainController.logInAttempt);
 /* GET - Listado de productos */
 router.get('/productList', mainController.productList); 
 
+/*GET - Perfil de Usuario */
+router.get('/register/profile', mainController.profile);
 
 module.exports = router;
