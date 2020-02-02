@@ -156,6 +156,12 @@ const controller = {
 		// res.send("Registro exitoso! Bienvenido a +Green :)");
 	
 	},
+
+	profile: (req,res) => {
+		let userLogged = getUserById(req.session.userId);
+		res.render('profile', { userLogged });
+	}
+
 	showLogIn: (req,res)=> {
 		res.render('login');
 	},
