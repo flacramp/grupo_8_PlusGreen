@@ -18,6 +18,7 @@ function storeUser(newUserData){
 	let allUsers = getAllUsers();
 	allUsers.push(newUserData);
 	fs.writeFileSync(userFilePath, JSON.stringify(allUsers, null, ' '));
+	return newUserData;
 }
 
 function generateUserId(){
@@ -76,7 +77,8 @@ const controller = {
 	root: (req, res) => {
 		let fetchProduct = getAllProducts();
 		let userLogged = getUserById(req.session.userId);
-		res.render('index', { product: fetchProduct});
+		// res.render('index',  {product: fetchProduct});
+		res.render('index', {product: fetchProduct, user: userLogged})
 	},
 	showProductAdd: (req, res) => {
 		res.render('productAdd');
@@ -131,7 +133,6 @@ const controller = {
 		res.render('register');
 	},
 	guardarRegister: (req, res) => {
-		console.log(req.file);
 
 		let newUserData = {
 			id: generateUserId(),
@@ -159,8 +160,8 @@ const controller = {
 
 	profile: (req,res) => {
 		let userLogged = getUserById(req.session.userId);
-		res.render('profile', { userLogged });
-	}
+		res.render('profile', { user: userLogged });
+	},
 
 	showLogIn: (req,res)=> {
 		res.render('login');
@@ -174,13 +175,24 @@ const controller = {
 		} else {
 			// Comparo passwords
 			if(bcryptjs.compareSync(req.body.password, user.password)){
-				//acá debería redirigirlo al PERFIL, pero no tenemos  /account nosotros todavía
-				res.redirect('/');
+				req.session.userId = user.id;
+				//seteo la cookie
+				if (req.body.remember_user) {
+					res.cookie('userCookie', user.id, { maxAge: 60000 * 60 * 24 * 30 });
+				}
+
+				res.redirect('/register/profile');
 			} else {
 				res.send('Contraseña incorrecta. Intentalo de vuelta!')
 
 			}
 				}
+	},
+	logout: (req,res) => {
+		req.session.destroy();
+		res.cookie('userCookie', null, {maxAge: 1});
+
+		return res.redirect('/')
 	},
 };
 

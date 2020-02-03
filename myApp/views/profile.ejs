@@ -5,10 +5,13 @@
 <body>
     <%- include('partials/header');%>
 
-<h2>Hola <%= userLogged.full_name %></h2>
-<img src="/images/avatars/<%= userLogged.image%>" width="100%">
+<h2>¡Hola, <%= user.first_name%>!</h2>
+<img src="/images/avatars/<%= user.image%>" width="100%">
 
 
+<form action="/register/logout" method="GET">
+    <button type="submit" class="btn btn-primary">LOGOUT</button   >
+</form>
     <%- include('partials/footer');%>
     <%- include('partials/scripts');%>
     
