@@ -53,6 +53,13 @@ router.post('/productAdd', uploadProductImage.single('image'),mainController.cre
 /* POST - Borrar producto. */
 router.delete('/productDelete/:id', mainController.deleteProduct);
 
+/* GET - Product Edit. */
+router.get('/productEdit/:id',mainController.productEdit);
+
+/* GET - Product Update. */
+router.put('/productEdit/:id',mainController.productUpdate);
+
+
 /* GET - formulario de registro. */
 router.get('/register', guestMiddleware, mainController.mostrarRegister);
 

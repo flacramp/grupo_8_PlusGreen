@@ -84,8 +84,7 @@ const controller = {
 		res.render('productAdd');
 	},
 	createProduct: (req, res) => {
-		console.log(req.file);
-
+		
 		let newProductData = {
 			id: generateProductId(),
 			category: req.body.category,
@@ -127,6 +126,34 @@ const controller = {
 		let listadoProductos = allProducts.filter(oneProduct => oneProduct.id != req.params.id);
 		fs.writeFileSync(productFilePath, JSON.stringify(listadoProductos, null, ' '));
 		res.redirect('/');
+	},
+	productEdit: (req, res) => {
+		let fetchProduct = getProductById(req.params.id);
+		res.render('productEdit', { product: fetchProduct});
+	},
+	productUpdate: (req, res) => {
+		req.body.id = req.params.id;
+		let productToUpdate= getProductById(req.params.id);
+		console.log(productToUpdate)
+		console.log(req.body.name)
+		productToUpdate.category= req.body.category;
+		productToUpdate.name= req.body.name;
+		// brand: req.body.brand;
+		// model: req.body.model;
+		// color: req.body.color;
+		// description: req.body.description;
+		// list_price: req.body.list_price;
+		// sale_price: req.body.sale_price;
+		// stock: req.body.stock;
+		// image: req.file.filename;
+		// width: req.body.width;
+		// length: req.body.lenght;
+		// height: req.body.height;
+		// weight: req.body.weight;
+		console.log(productToUpdate);
+		res.redirect('/productDetail/'+ req.params.id)
+		
+		
 	},
 
 	mostrarRegister: (req, res) => {
