@@ -132,26 +132,30 @@ const controller = {
 		res.render('productEdit', { product: fetchProduct});
 	},
 	productUpdate: (req, res) => {
-		req.body.id = req.params.id;
 		let productToUpdate= getProductById(req.params.id);
-		console.log(productToUpdate)
-		console.log(req.body.name)
-		productToUpdate.category= req.body.category;
-		productToUpdate.name= req.body.name;
-		// brand: req.body.brand;
-		// model: req.body.model;
-		// color: req.body.color;
-		// description: req.body.description;
-		// list_price: req.body.list_price;
-		// sale_price: req.body.sale_price;
-		// stock: req.body.stock;
-		// image: req.file.filename;
-		// width: req.body.width;
-		// length: req.body.lenght;
-		// height: req.body.height;
-		// weight: req.body.weight;
-		console.log(productToUpdate);
-		res.redirect('/productDetail/'+ req.params.id)
+		let oldImage = productToUpdate.image;
+		productToUpdate = {
+		id: req.params.id,
+		 category: req.body.category,
+		 name: req.body.name,
+		 brand: req.body.brand,
+		 model: req.body.model,
+		 color: req.body.color,
+		 description: req.body.description,
+		 list_price: req.body.list_price,
+		 sale_price: req.body.sale_price,
+		 stock: req.body.stock,
+		 image: req.file ? req.file.filename : oldImage,
+		 width: req.body.width,
+		 length: req.body.lenght,
+		 height: req.body.height,
+		 weight: req.body.weight,
+			}
+		let allProducts = getAllProducts();
+		let listadoProductos = allProducts.filter(oneProduct => oneProduct.id != req.params.id);
+		listadoProductos.push(productToUpdate);
+		fs.writeFileSync(productFilePath, JSON.stringify(listadoProductos, null, ' '));
+			res.redirect('/productDetail/'+ req.params.id)
 		
 		
 	},
@@ -200,6 +204,7 @@ const controller = {
 		if(user == undefined){
 			res.send("Oops. No existe usuario asociado a este email. Intentalo de vuelta!")
 		} else {
+
 			// Comparo passwords
 			if(bcryptjs.compareSync(req.body.password, user.password)){
 				req.session.userId = user.id;

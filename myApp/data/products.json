@@ -34,28 +34,9 @@
   "weight": 6
  },
  {
-  "id": 3,
-  "category": "Kids",
-  "name": "Sugar - Palm",
-  "brand": "Buick",
-  "model": "LaCrosse",
-  "color": "Teal",
-  "description": "nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat",
-  "list_price": 28160.74,
-  "sale_price": 34061.62,
-  "stock": 2,
-  "image": "cat.png",
-  "width": 105,
-  "length": 33,
-  "height": 351,
-  "weight": 9
- },
- {
   "id": 4,
   "category": "Outdoors",
   "name": "Soup - Campbells, Cream Of",
-
-
   "brand": "Infiniti",
   "model": "QX",
   "color": "Yellow",
@@ -1683,5 +1664,22 @@
   "length": "22",
   "height": "14",
   "weight": "22"
+ },
+ {
+  "id": "3",
+  "category": "Kids",
+  "name": "Sugar - Palmera3",
+  "brand": "Buick",
+  "model": "LaCrosse",
+  "color": "Teal",
+  "description": "nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat",
+  "list_price": "28160.74",
+  "sale_price": "34061.62",
+  "stock": "2",
+  "image": "cat.png",
+  "width": "105",
+  "length": "123",
+  "height": "351",
+  "weight": "9"
  }
 ]

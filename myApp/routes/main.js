@@ -57,7 +57,7 @@ router.delete('/productDelete/:id', mainController.deleteProduct);
 router.get('/productEdit/:id',mainController.productEdit);
 
 /* GET - Product Update. */
-router.put('/productEdit/:id',mainController.productUpdate);
+router.put('/productEdit/:id',uploadProductImage.single('image'),mainController.productUpdate);
 
 
 /* GET - formulario de registro. */
