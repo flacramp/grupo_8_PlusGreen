@@ -2,8 +2,8 @@ module.exports =
 {
   "development": {
     "username": "root",
-    "password": 'danufrancojero',
-    "database": "plusgreen_db",
+    "password": null,
+    "database": "db_green",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false

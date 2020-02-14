@@ -4,6 +4,7 @@ const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 
+
 // defino variabes para el register
 const userFilePath = path.join(__dirname, '../data/register.json');
 const productFilePath = path.join(__dirname, '../data/products.json');
@@ -73,19 +74,15 @@ function getProductById(id){
 }
 
 
-
-
 const controller = {
 	root: (req, res) => {
 		let fetchProduct = getAllProducts();
-		let userLogged = getUserById(req.session.userId);
-		// res.render('index',  {product: fetchProduct});
-		res.render('index', {product: fetchProduct, user: userLogged})
+		res.render('index', { product: fetchProduct});
 	},
-	showProductAdd: (req, res) => {
-		res.render('productAdd');
+	showForm: (req, res) => {
+		res.render('create');
 	},
-	createProduct: (req, res) => {
+	create: (req, res) => {
 		
 		let newProductData = {
 			id: generateProductId(),
@@ -107,33 +104,29 @@ const controller = {
 
 		storeProduct(newProductData);
 	//modificar por redirigir al login y no al index, o sino a una success page
-		res.redirect('productAdd');
+		res.redirect('create');
 	},
 
-	productCart: (req, res) => {
+	cart: (req, res) => {
 		let fetchProduct = getAllProducts();
-		res.render('productCart', { product: fetchProduct });
+		res.render('cart', { product: fetchProduct });
 	},
-	productDetail: (req, res) => {
+	detail: (req, res) => {
 		let fetchProduct = getProductById(req.params.id);
-		res.render('productDetail', { product: fetchProduct});
+		res.render('detail', { product: fetchProduct});
 	},
-	productList: (req, res) => {
-		let fetchProduct = getAllProducts();
-		res.render('productList', { product: fetchProduct});
-	//	res.send(fetchProduct);	
-	},
-	deleteProduct: (req,res) => {
+	
+	delete: (req,res) => {
 		let allProducts = getAllProducts();
 		let listadoProductos = allProducts.filter(oneProduct => oneProduct.id != req.params.id);
 		fs.writeFileSync(productFilePath, JSON.stringify(listadoProductos, null, ' '));
-		res.redirect('/');
+		res.redirect('index');
 	},
-	productEdit: (req, res) => {
+	edit: (req, res) => {
 		let fetchProduct = getProductById(req.params.id);
-		res.render('productEdit', { product: fetchProduct});
+		res.render('edit', { product: fetchProduct});
 	},
-	productUpdate: (req, res) => {
+	update: (req, res) => {
 		let productToUpdate= getProductById(req.params.id);
 		let oldImage = productToUpdate.image;
 		productToUpdate = {
@@ -157,77 +150,9 @@ const controller = {
 		let listadoProductos = allProducts.filter(oneProduct => oneProduct.id != req.params.id);
 		listadoProductos.push(productToUpdate);
 		fs.writeFileSync(productFilePath, JSON.stringify(listadoProductos, null, ' '));
-			res.redirect('/productDetail/'+ req.params.id)
-		
-		
+			res.redirect('/'+ req.params.id)
 	},
 
-	mostrarRegister: (req, res) => {
-		res.render('register');
-	},
-	guardarRegister: (req, res) => {
-
-		let newUserData = {
-			id: generateUserId(),
-			first_name: req.body.first_name,
-			last_name: req.body.last_name,
-			email: req.body.email,
-			password: bcryptjs.hashSync(req.body.password, 10),
-			image: req.file.filename,
-				};
-		let newUser = storeUser(newUserData);
-
-		// Seteamos ID de session para el autologueo
-		req.session.userId = newUser.id;
-
-		//Seteo la cookie para mantener el login
-		res.cookie('userCookie', newUser.id, {maxAge: 60000 * 60 * 24 * 30});
-
-		// redirecciono ya logueado al perfil
-		return res.redirect('/register/profile')
-
-		//modificar por redirigir al login y no al index, o sino a una success page
-		// res.send("Registro exitoso! Bienvenido a +Green :)");
-	
-	},
-
-	profile: (req,res) => {
-		let userLogged = getUserById(req.session.userId);
-		res.render('profile', { user: userLogged });
-	},
-
-	showLogIn: (req,res)=> {
-		res.render('login');
-	},
-	logInAttempt: (req,res) => {
-		//Existe el email?
-		let user = getUserEmail(req.body.email);
-
-		if(user == undefined){
-			res.send("Oops. No existe usuario asociado a este email. Intentalo de vuelta!")
-		} else {
-
-			// Comparo passwords
-			if(bcryptjs.compareSync(req.body.password, user.password)){
-				req.session.userId = user.id;
-				//seteo la cookie
-				if (req.body.remember_user) {
-					res.cookie('userCookie', user.id, { maxAge: 60000 * 60 * 24 * 30 });
-				}
-
-				res.redirect('/register/profile');
-			} else {
-				res.send('Contraseña incorrecta. Intentalo de vuelta!')
-
-			}
-				}
-	},
-	logout: (req,res) => {
-		req.session.destroy();
-		res.cookie('userCookie', null, {maxAge: 1});
-
-		return res.redirect('/')
-	},
 };
 
 module.exports = controller;

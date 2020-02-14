@@ -8,14 +8,14 @@ module.exports = function (sequelize, dataTypes){
             autoIncrement: true,
             primaryKey: true,
         },
-        category: {
-            type: dataTypes.STRING,
+        category_id: {
+            type: dataTypes.INTEGER,
         },
         name: {
             type: dataTypes.STRING,
         },
-        brand: {
-            type: dataTypes.STRING,
+        brand_id: {
+            type: dataTypes.INTEGER,
         }, 
         model: {
             type: dataTypes.STRING,
@@ -23,8 +23,8 @@ module.exports = function (sequelize, dataTypes){
         image: {
             type: dataTypes.BLOB,
         },
-        color: {
-            type: dataTypes.STRING,
+        color_id: {
+            type: dataTypes.INTEGER,
         },
         description: {
             type: dataTypes.STRING,
@@ -47,17 +47,17 @@ module.exports = function (sequelize, dataTypes){
         height: {
             type: dataTypes.INTEGER,
         },
-        weigth: {
+        weight: {
             type: dataTypes.INTEGER,
         },
-        // user_id: {
-        //     type: dataTypes.INTEGER
-        // },
+        user_id: {
+            type: dataTypes.INTEGER
+        },
 
     };
     
     let config = {
-        tableName = 'products',
+        tableName: 'products',
         timestamp: true,
     }
     
@@ -72,6 +72,14 @@ module.exports = function (sequelize, dataTypes){
         Products.belongsTo(models.Category,{
             as: 'categories',
             foreignKey: 'category_id'
+        }),
+        Products.belongsTo(models.Color,{
+            as: 'colors',
+            foreignKey: 'color_id'
+        }),
+        Products.belongsTo(models.Brand,{
+            as: 'brand',
+            foreignKey: 'brand_id'
         })
     };
     

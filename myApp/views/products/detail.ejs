@@ -87,12 +87,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<form action="/productDelete/<%= product.id %>?_method=DELETE" method="POST">
+				<form action="/<%= product.id %>?_method=DELETE" method="POST">
 					<button type="submit" class="btn btn-primary m-2">Borrar</button>
 				</form>
 
 				<form>
-					<a href="/productEdit/<%= product.id%>">
+					<a href="/edit/<%= product.id%>">
 					<button  type="button" class="btn btn-primary m-2">Editar</button>
 				</form>
 			</div>
