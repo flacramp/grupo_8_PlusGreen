@@ -31,11 +31,12 @@ app.set('view engine', 'ejs');
 
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
+const productsRouter = require('./routes/productsRouter');
+app.use('/products', productsRouter);
 const main = require('./routes/main');
 app.use('/', main);
 
-const productsRouter = require('./routes/productsRouter');
-app.use('/products', productsRouter);
+
 
 
 

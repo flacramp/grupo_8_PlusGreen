@@ -80,7 +80,7 @@ const controller = {
 		res.render('index', { product: fetchProduct});
 	},
 	showForm: (req, res) => {
-		res.render('create');
+		res.render('products/create');
 	},
 	create: (req, res) => {
 		
@@ -104,7 +104,7 @@ const controller = {
 
 		storeProduct(newProductData);
 	//modificar por redirigir al login y no al index, o sino a una success page
-		res.redirect('create');
+		res.redirect('product/create');
 	},
 
 	cart: (req, res) => {
@@ -113,7 +113,7 @@ const controller = {
 	},
 	detail: (req, res) => {
 		let fetchProduct = getProductById(req.params.id);
-		res.render('detail', { product: fetchProduct});
+		res.render('products/detail', { product: fetchProduct});
 	},
 	
 	delete: (req,res) => {
