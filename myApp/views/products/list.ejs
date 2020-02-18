@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-	<%- include('partials/head',{title: "producto"});%>
+	<%- include('../partials/head',{title: "producto"});%>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
-	<%- include('partials/header');%>
+	<%- include('../partials/header');%>
 
 	<!--Banner de la categoria-->
 	<div class="container mb-4" style="height: 250px">
@@ -25,7 +25,7 @@
 			<div class="col-6 col-md-3" > 
 				<a style="color: grey" href="/productDetail/<%=`${oneProduct.id}`%>"> 
 					<div class="card flex mx-1 mb-4">
-						<img src="/./images/productImages/<%=`${oneProduct.image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
+						<img src="/../images/productImages/<%=`${oneProduct.image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
 					
 						<div class="card-body" style="font-size: 14px; height: 150px; width: 200px">
 							<h5 class="card-title" style="font-size: 16px"><%=`${oneProduct.name}`%></h5>
@@ -44,8 +44,8 @@
 	</div>
 
 
-	<%- include('partials/footer');%>
-	<%- include('partials/scripts');%>
+	<%- include('../partials/footer');%>
+	<%- include('../partials/scripts');%>
 
 </body>
 </html>

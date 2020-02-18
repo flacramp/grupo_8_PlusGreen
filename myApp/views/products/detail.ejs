@@ -21,7 +21,7 @@
 	<div class="container bg-white border border-secondary">
 		<div class="row">
 			<div class="col-12 col-sm-8 img-thumbnail border-secondary">
-				<img src="/images/productImages/<%= product.image %>" class="img-fluid" alt="Responsive image">		
+				<img src="../images/productImages/<%= product.image %>" class="img-fluid" alt="Responsive image">		
 			</div>
 			<div class="col-12 col-sm-4 ">
 				<div class="row">
@@ -87,19 +87,19 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<form action="/<%= product.id %>?_method=DELETE" method="POST">
+				<form action="/products/<%= product.id %>?_method=DELETE" method="POST">
 					<button type="submit" class="btn btn-primary m-2">Borrar</button>
 				</form>
 
 				<form>
-					<a href="/edit/<%= product.id%>">
+					<a href="/products/edit/<%= product.id%>">
 					<button  type="button" class="btn btn-primary m-2">Editar</button>
 				</form>
 			</div>
 		</div>
 	</div>
-	<%- include('partials/footer');%>
-	<%- include('partials/scripts');%>
+	<%- include('../partials/footer');%>
+	<%- include('../partials/scripts');%>
 
 </body>
 </html>
