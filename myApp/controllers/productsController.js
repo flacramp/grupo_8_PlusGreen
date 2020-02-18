@@ -79,7 +79,12 @@ const controller = {
 		res.render('products/list', { product: fetchProduct});
 	},
 	showForm: (req, res) => {
+<<<<<<< HEAD
 		res.render('./views/products/create');
+=======
+		res.render('products/create');
+		// res.send("exito")
+>>>>>>> e740271059c310f9823cf0bc0b1ef8174473adab
 	},
 	create: (req, res) => {
 		
