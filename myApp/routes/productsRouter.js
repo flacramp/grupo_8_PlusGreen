@@ -24,14 +24,15 @@ const productsController = require('../controllers/productsController');
 /* GET - Formulario para crear producto. */
 router.get('/create',productsController.showForm);
 
+/* POST - Creacion de producto. */
+router.post('/create', uploadProductImage.single('image'),productsController.create);
+
 /* GET - detalle de producto. */
 router.get('/',productsController.root);
 
 /* GET - cart. */
 router.get('/cart',productsController.cart);
 
-/* POST - Creacion de producto. */
-router.post('/create', uploadProductImage.single('image'),productsController.create);
 
 /* POST - Borrar producto. */
 router.delete('/:id', productsController.delete);
