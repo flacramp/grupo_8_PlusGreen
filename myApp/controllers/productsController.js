@@ -103,7 +103,7 @@ const controller = {
 
 		storeProduct(newProductData);
 	//modificar por redirigir al login y no al index, o sino a una success page
-		res.redirect('/products/create');
+		res.redirect('/products/'+newProductData.id);
 	},
 
 	cart: (req, res) => {
@@ -123,13 +123,13 @@ const controller = {
 	},
 	edit: (req, res) => {
 		let fetchProduct = getProductById(req.params.id);
-		res.render('edit', { product: fetchProduct});
+		res.render('products/edit', { product: fetchProduct});
 	},
 	update: (req, res) => {
 		let productToUpdate= getProductById(req.params.id);
 		let oldImage = productToUpdate.image;
 		productToUpdate = {
-		id: req.params.id,
+		id: Number(req.params.id),
 		 category: req.body.category,
 		 name: req.body.name,
 		 brand: req.body.brand,
@@ -149,7 +149,7 @@ const controller = {
 		let listadoProductos = allProducts.filter(oneProduct => oneProduct.id != req.params.id);
 		listadoProductos.push(productToUpdate);
 		fs.writeFileSync(productFilePath, JSON.stringify(listadoProductos, null, ' '));
-			res.redirect('/'+ req.params.id)
+			res.redirect('/products/'+ req.params.id)
 	},
 
 };

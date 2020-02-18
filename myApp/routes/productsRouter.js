@@ -38,10 +38,10 @@ router.get('/cart',productsController.cart);
 router.delete('/:id', productsController.delete);
 
 /* GET - Product Edit. */
-router.get('/:id',productsController.edit);
+router.get('/edit/:id',productsController.edit);
 
 /* GET - Product Update. */
-router.put('/:id',uploadProductImage.single('image'),productsController.update);
+router.put('/edit/:id',uploadProductImage.single('image'),productsController.update);
 
 /* GET - detalle de producto. */
 router.get('/:id',productsController.detail);

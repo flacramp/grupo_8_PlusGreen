@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head',{title:'Bienvenidos a +Green'});%>
+<%- include('../views/partials/head',{title:'Bienvenidos a +Green'});%>
 
 
 <body>
 	
-	<%- include('../partials/header');%>
+	<%- include('../views/partials/header');%>
 
 
 	<!--Arranca el cuerpo del sitio-->
@@ -72,9 +72,9 @@
 	<div class="row">
 		<%for(var j=1; j<5; j++){%>
 			<div class="col-6 col-md-3"> 
-				<a style="color: grey" href="/product/<%=`${product[j].id}`%>"> 
+				<a style="color: grey" href="/products/<%=`${product[j].id}`%>"> 
 					<div class="card flex mx-1 mb-4">
-						<img src="/./images/productImages/<%=`${product[j].image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
+						<img src="images/productImages/<%=`${product[j].image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
 					
 						<div class="card-body" style="font-size: 14px; height: 150px; width: 200px">
 							<h5 class="card-title" style="font-size: 16px"><%=`${product[j].name}`%></h5>
@@ -293,8 +293,8 @@
 	</div>
 	<!--Fin del metodo de subscripcion-->
 
-	<%- include('../partials/footer');%>
-	<%- include('../partials/scripts');%>
+	<%- include('../views/partials/footer');%>
+	<%- include('../views/partials/scripts');%>
 
  
 </body>
