@@ -73,14 +73,13 @@ function getProductById(id){
 	return productToFind;
 }
 
-
 const controller = {
 	root: (req, res) => {
 		let fetchProduct = getAllProducts();
-		res.render('index', { product: fetchProduct});
+		res.render('products/list', { product: fetchProduct});
 	},
 	showForm: (req, res) => {
-		res.render('products/create');
+		res.render('./views/products/create');
 	},
 	create: (req, res) => {
 		

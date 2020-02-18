@@ -33,6 +33,7 @@ app.set('view engine', 'ejs');
 // ************ Route System require and use() ************
 const productsRouter = require('./routes/productsRouter');
 app.use('/products', productsRouter);
+
 const main = require('./routes/main');
 app.use('/', main);
 
