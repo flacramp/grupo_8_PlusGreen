@@ -81,6 +81,7 @@ const controller = {
 	},
 	showForm: (req, res) => {
 		res.render('products/create');
+		// res.send("exito")
 	},
 	create: (req, res) => {
 		

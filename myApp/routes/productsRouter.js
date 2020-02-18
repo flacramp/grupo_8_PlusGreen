@@ -20,17 +20,15 @@ const uploadProductImage=multer({storage: storageDiskProductImage});
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
 
-/* GET - detalle de producto. */
-router.get('/',productsController.root);
-
-/* GET - detalle de producto. */
-router.get('/:id',productsController.detail);
-
-/* GET - cart. */
-router.get('/cart',productsController.cart);
 
 /* GET - Formulario para crear producto. */
 router.get('/create',productsController.showForm);
+
+/* GET - detalle de producto. */
+router.get('/',productsController.root);
+
+/* GET - cart. */
+router.get('/cart',productsController.cart);
 
 /* POST - Creacion de producto. */
 router.post('/create', uploadProductImage.single('image'),productsController.create);
@@ -43,5 +41,8 @@ router.get('/:id',productsController.edit);
 
 /* GET - Product Update. */
 router.put('/:id',uploadProductImage.single('image'),productsController.update);
+
+/* GET - detalle de producto. */
+router.get('/:id',productsController.detail);
 
 module.exports = router;
