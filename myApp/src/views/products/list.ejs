@@ -21,9 +21,9 @@
 	<div class="container mb-4">
 		<!-- Primera row del listado de productos-->
 		<div class="row">
-			<% product.forEach(function (oneProduct) { %>
+			<% products.forEach(function (oneProduct) { %>
 			<div class="col-6 col-md-3" > 
-				<a style="color: grey" href="/productDetail/<%=`${oneProduct.id}`%>"> 
+				<a style="color: grey" href="/products/<%=`${oneProduct.id}`%>"> 
 					<div class="card flex mx-1 mb-4">
 						<img src="/../images/productImages/<%=`${oneProduct.image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
 					

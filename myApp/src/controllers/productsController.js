@@ -75,8 +75,14 @@ function getProductById(id){
 
 const controller = {
 	root: (req, res) => {
-		let fetchProduct = getAllProducts();
-		res.render('products/list', { product: fetchProduct});
+		// let fetchProduct = getAllProducts();
+		db.Products
+			.findAll()
+			.then(products => {
+				return res.render('products/list', {products}); 
+			})
+			.catch(error => console.log(error));
+		
 	},
 	showForm: (req, res) => {
 		res.render('products/create');
@@ -111,8 +117,18 @@ const controller = {
 		res.render('cart', { product: fetchProduct });
 	},
 	detail: (req, res) => {
-		let fetchProduct = getProductById(req.params.id);
-		res.render('products/detail', { product: fetchProduct});
+		// let fetchProduct = getProductById(req.params.id);
+		db.Products
+			.findByPk(
+				req.params.id,
+				{
+				include: ['category', 'color']
+				}
+				)
+			.then(products => {
+				res.render('products/detail', {products, category: category.name});
+			})
+			.catch(error => console.log(error));
 	},
 	
 	delete: (req,res) => {

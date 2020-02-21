@@ -12,7 +12,7 @@
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb bg-white">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active" aria-current="page"><%= `${ product.category }` %></li>
+						<li class="breadcrumb-item active" aria-current="page"><%= `${ products.category.name }` %></li>
 					</ol>
 				</nav>
 			</div>
@@ -21,31 +21,31 @@
 	<div class="container bg-white border border-secondary">
 		<div class="row">
 			<div class="col-12 col-sm-8 img-thumbnail border-secondary">
-				<img src="../images/productImages/<%= product.image %>" class="img-fluid" alt="Responsive image">		
+				<img src="../images/productImages/<%= products.image %>" class="img-fluid" alt="Responsive image">		
 			</div>
 			<div class="col-12 col-sm-4 ">
 				<div class="row">
 					<div class="col-12 text-center pb-4 pt-4">
-						<h2><%= product.name %></h2>
+						<h2><%= products.name %></h2>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-12 d-flex justify-content-around">
-							<p><%= product.brand %></p>
-							<p><%= product.model %></p>
-							<p><%= product.color %></p>
+							<p><%= products.brand %></p>
+							<p><%= products.model %></p>
+							<p><%= products.color %></p>
 					</div>
 				</div>
 				<div class="row">	
 					<div class="col-12 col-sm-12 col- justify-content-start text-left pt-4">
-						<% if(product.sale_price != null){ %>
-							<h4><strike>$ <%= product.list_price %></strike></h4>
+						<% if(products.sale_price != null){ %>
+							<h4><strike>$ <%= products.list_price %></strike></h4>
 							<div class="col-12 d-flex justify-content-start text-left" style="padding-left: 0px;">
 								<h4 style="color: red; padding-right: 3px;">¡Oferta!:</h4> 
-								<h4>$<%= product.sale_price %></h4>
+								<h4>$<%= products.sale_price %></h4>
 							</div>
 						<%}else{%>
-							<h4>$ <%= product.list_price %></h4>
+							<h4>$ <%= products.list_price %></h4>
 							<%}%>
 							<p>Hasta 12 cuotas sin interes</p>
 						<p>Recibilo en 2 dias</p>
@@ -80,19 +80,19 @@
 		<div class="row">
 			<div class="col-12">
 				<h2>Descripcion de producto</h2>
-				<p><%= product.description %></p>
+				<p><%= products.description %></p>
 			</div>
 		</div>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+				<form action="/products/<%= products.id %>?_method=DELETE" method="POST">
 					<button type="submit" class="btn btn-primary m-2">Borrar</button>
 				</form>
 
 				<form>
-					<a href="/products/edit/<%= product.id%>">
+					<a href="/products/edit/<%= products.id%>">
 					<button  type="button" class="btn btn-primary m-2">Editar</button>
 				</form>
 			</div>
