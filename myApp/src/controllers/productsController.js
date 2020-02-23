@@ -77,7 +77,11 @@ const controller = {
 	root: (req, res) => {
 		// let fetchProduct = getAllProducts();
 		db.Products
-			.findAll()
+			.findAll(
+				{
+					include: ['categories', 'colors', 'brands']
+				}
+			)
 			.then(products => {
 				return res.render('products/list', {products}); 
 			})
@@ -85,12 +89,18 @@ const controller = {
 		
 	},
 	showForm: (req, res) => {
-		res.render('products/create');
+
+		sequelize
+		.query('SELECT * FROM categories')
+		.then(CategoriesInDB => {
+			return res.render('products/create', { categories: categoriesInDB[0] });
+		})
+		.catch(error => console.log(error))
+
 	},
 	create: (req, res) => {
 		
-		let newProductData = {
-			id: generateProductId(),
+		db.Products.create({
 			category: req.body.category,
 			name: req.body.name,
 			brand: req.body.brand,
@@ -102,14 +112,36 @@ const controller = {
 			stock: req.body.stock,
 			image: req.file.filename,
 			width: req.body.width,
-			length: req.body.lenght,
+			length: req.body.length,
 			height: req.body.height,
 			weight: req.body.weight,
-		};
+		}
+		);
 
-		storeProduct(newProductData);
+		return res.redirect('/products/')
+
+
+		// let newProductData = {
+		// 	id: generateProductId(),
+		// 	category: req.body.category,
+		// 	name: req.body.name,
+		// 	brand: req.body.brand,
+		// 	model: req.body.model,
+		// 	color: req.body.color,
+		// 	description: req.body.description,
+		// 	list_price: req.body.list_price,
+		// 	sale_price: req.body.sale_price,
+		// 	stock: req.body.stock,
+		// 	image: req.file.filename,
+		// 	width: req.body.width,
+		// 	length: req.body.lenght,
+		// 	height: req.body.height,
+		// 	weight: req.body.weight,
+		// };
+
+		// storeProduct(newProductData);
 	//modificar por redirigir al login y no al index, o sino a una success page
-		res.redirect('/products/'+newProductData.id);
+		// res.redirect('/products/'+newProductData.id);
 	},
 
 	cart: (req, res) => {
@@ -117,29 +149,42 @@ const controller = {
 		res.render('cart', { product: fetchProduct });
 	},
 	detail: (req, res) => {
-		// let fetchProduct = getProductById(req.params.id);
 		db.Products
 			.findByPk(
 				req.params.id,
 				{
-				include: ['category', 'color']
+				include: ['categories', 'colors', 'brands'] 
 				}
-				)
+			)
 			.then(products => {
-				res.render('products/detail', {products, category: category.name});
+				res.render('products/detail', {products});
 			})
 			.catch(error => console.log(error));
 	},
 	
 	delete: (req,res) => {
-		let allProducts = getAllProducts();
-		let listadoProductos = allProducts.filter(oneProduct => oneProduct.id != req.params.id);
-		fs.writeFileSync(productFilePath, JSON.stringify(listadoProductos, null, ' '));
-		res.redirect('../');
+		db.Products
+			.destroy({
+				where: {
+					id: req.params.id
+				}
+			})
+			.then(products => {
+				res.redirect('../');
+			})
 	},
 	edit: (req, res) => {
-		let fetchProduct = getProductById(req.params.id);
-		res.render('products/edit', { product: fetchProduct});
+		db.Products
+			.findByPk(
+				req.params.id,
+				{
+				include: ['categories', 'colors', 'brands'] 
+				}
+			)
+			.then(products => {
+				res.render('products/edit', {products})
+			})
+			.catch(error => console.log(error))
 	},
 	update: (req, res) => {
 		let productToUpdate= getProductById(req.params.id);

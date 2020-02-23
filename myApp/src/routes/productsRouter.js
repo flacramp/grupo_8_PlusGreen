@@ -8,7 +8,7 @@ const guestMiddleware = require('../middlewares/guestMiddleware')
 
 const storageDiskProductImage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		cb(null, __dirname + '/../public/images/productImages');
+		cb(null, __dirname + '/../../public/images/productImages');
 	},
 	filename: (req, file, cb) => {
         let imageFinalName = `product_image_${Date.now()}${path.extname(file.originalname)}`;

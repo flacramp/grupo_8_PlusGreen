@@ -78,7 +78,7 @@ module.exports = function (sequelize, dataTypes){
             foreignKey: 'color_id'
         }),
         Product.belongsTo(models.Brands,{
-            as: 'brand',
+            as: 'brands',
             foreignKey: 'brand_id'
         })
     };

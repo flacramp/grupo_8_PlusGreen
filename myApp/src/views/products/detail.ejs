@@ -12,7 +12,7 @@
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb bg-white">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active" aria-current="page"><%= `${ products.category.name }` %></li>
+						<li class="breadcrumb-item active" aria-current="page"><%= `${ products.categories.name }` %></li>
 					</ol>
 				</nav>
 			</div>
@@ -31,9 +31,9 @@
 				</div>
 				<div class="row">
 					<div class="col-12 d-flex justify-content-around">
-							<p><%= products.brand %></p>
+							<p><%= products.brands.name %></p>
 							<p><%= products.model %></p>
-							<p><%= products.color %></p>
+							<p><%= products.colors.name %></p>
 					</div>
 				</div>
 				<div class="row">	
