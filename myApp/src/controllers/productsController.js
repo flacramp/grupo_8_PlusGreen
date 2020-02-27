@@ -83,7 +83,8 @@ const controller = {
 				}
 			)
 			.then(products => {
-				return res.render('products/list', {products}); 
+				return
+				 res.render('products/list', {products}); 
 			})
 			.catch(error => console.log(error));
 		
@@ -93,7 +94,7 @@ const controller = {
 		sequelize
 		.query('SELECT * FROM categories')
 		.then(CategoriesInDB => {
-			return res.render('products/create', { categories: categoriesInDB[0] });
+			return res.render('products/create', { categories: CategoriesInDB[0] });
 		})
 		.catch(error => console.log(error))
 
