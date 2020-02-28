@@ -19,20 +19,29 @@
 	</div>
 	<div class="form-row">
 	    <div class="form-group col-12 col-sm-6 col-md-3">
-			 <label>Marca</label>
-			 <input type="text" name="brand" class="form-control" value="<%=products.brands.name%>">
-		</div>
+			<label>Marca</label>
+			<select name="brand" class="form-control">
+					<option value="<%= products.brands.id %>" active> <%=products.brands.name  %> </option>  
+			
+			</select>
+	   </div>
 	    <div class="form-group col-12 col-sm-6 col-md-3">
 		     <label>Modelo</label>
 		     <input type="text" name="model" class="form-control" value="<%=products.model%>">
 		</div>
-		<div n="form-group col-12 col-sm-6 col-md-3">
+		<div class="form-group col-12 col-sm-6 col-md-3">
 			<label>Categoria</label>
-			<input type="text" name="category" class="form-control" value="<%=products.categories.name%>">
+			<select name="category" class="form-control">
+				<option value="<%= products.categories.id %>" active> <%=products.categories.name  %> </option>  
+			</select>
+
 		</div>
 		<div class="form-group col-12 col-sm-6 col-md-3">
 			<label>Color</label>
-			<input type="text" name="color" class="form-control" value="<%=products.colors.name%>">
+			<select name="color" class="form-control">
+				<option value="<%= products.colors.id %>" active> <%=products.colors.name  %> </option>  
+			</select>
+
 		</div>
 	</div>
 	<div class="form-row">

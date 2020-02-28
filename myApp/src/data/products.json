@@ -85,23 +85,6 @@
   "weight": 8
  },
  {
-  "id": 13,
-  "category": "Clothing",
-  "name": "Duck - Fat",
-  "brand": "Suzuki",
-  "model": "Sidekick",
-  "color": "Khaki",
-  "description": "morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede",
-  "list_price": 18917.38,
-  "sale_price": 9839.96,
-  "stock": 64,
-  "image": "cat.png",
-  "width": 398,
-  "length": 13,
-  "height": 74,
-  "weight": 4
- },
- {
   "id": 14,
   "category": "Books",
   "name": "Lamb - Whole Head Off,nz",
@@ -1578,5 +1561,21 @@
   "width": "41",
   "height": "261",
   "weight": "7"
+ },
+ {
+  "id": 13,
+  "category": "Category_1",
+  "name": "Prueba final Franco",
+  "brand": "Brand_1",
+  "model": "10",
+  "color": "yellow",
+  "description": "WQALSDNASJDNAJSN",
+  "list_price": "10500.00",
+  "sale_price": "9999.00",
+  "stock": "11",
+  "image": "cat.png",
+  "width": "11",
+  "height": "111",
+  "weight": "213"
  }
 ]
