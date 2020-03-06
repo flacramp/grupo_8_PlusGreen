@@ -4,120 +4,47 @@ const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 
-// defino variabes para el register
-const userFilePath = path.join(__dirname, '../data/register.json');
-const productFilePath = path.join(__dirname, '../data/products.json');
-
-// Funciones Helper
-function getAllUsers() {
-	let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
-	let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent);
-	return finalUsers;
-}
-
-function storeUser(newUserData){
-	let allUsers = getAllUsers();
-	allUsers.push(newUserData);
-	fs.writeFileSync(userFilePath, JSON.stringify(allUsers, null, ' '));
-	return newUserData;
-}
-
-function generateUserId(){
-	let allUsers = getAllUsers();
-	if(allUsers.length==0){
-		return 1;
-	}
-	let lastUser=allUsers.pop();
-	return lastUser.id+1
-}
-
-function getUserEmail(email){
-	let allUsers=getAllUsers();
-	let findUser = allUsers.find(user => user.email == email);
-	return findUser;
-}
-
-function getUserById(id){
-	let allUsers=getAllUsers();
-	let findUser = allUsers.find(user => user.id == id);
-	return findUser;
-}
-
-function getAllProducts() {
-	let productFileContent = fs.readFileSync(productFilePath, 'utf-8');
-	let finalProducts = productFileContent == '' ? [] : JSON.parse(productFileContent);
-	return finalProducts;
-}
-
-
-
-function storeProduct(newProductData){
-	let allProducts = getAllProducts();
-	allProducts.push(newProductData);
-	fs.writeFileSync(productFilePath, JSON.stringify(allProducts, null, ' '));
-}
-
-function generateProductId(){
-	let allProducts = getAllProducts();
-	if(allProducts.length==0){
-		return 1;
-	}
-	let lastProduct=allProducts.pop();
-	return lastProduct.id+1
-}
-
-function getProductById(id){
-	let products = getAllProducts();
-	let productToFind = products.find(oneProduct => oneProduct.id==id)
-	return productToFind;
-}
-
-
-
-
 const controller = {
 
 	showRegister: (req, res) => {
 		res.render('users/register');
 	},
 	saveUser: (req, res) => {
-
-		let newUserData = {
-			id: generateUserId(),
+		db.Users.create({
 			first_name: req.body.first_name,
 			last_name: req.body.last_name,
 			email: req.body.email,
 			password: bcryptjs.hashSync(req.body.password, 10),
 			image: req.file.filename,
-				};
-		let newUser = storeUser(newUserData);
-
-		// Seteamos ID de session para el autologueo
-		req.session.userId = newUser.id;
-
-		//Seteo la cookie para mantener el login
-		res.cookie('userCookie', newUser.id, {maxAge: 60000 * 60 * 24 * 30});
-
-		// redirecciono ya logueado al perfil
-		return res.redirect('/users/profile')
-
-		//modificar por redirigir al login y no al index, o sino a una success page
-		// res.send("Registro exitoso! Bienvenido a +Green :)");
-	
+		}
+		)
+		.then(lastInserted => {
+			req.session.userId = lastInserted.id;
+			res.cookie('userCookie', lastInserted.id, {maxAge: 60000 * 60 * 24 * 30});
+			return res.redirect('/users/profile')
+		})	
 	},
 
 	profile: (req,res) => {
-		let userLogged = getUserById(req.session.userId);
-		res.render('users/profile', { user: userLogged });
+		db.Users.findByPk(req.session.userId)
+		.then(users => {
+			res.render('users/profile', { users });
+		})
+		.catch(error => console.log(error))
 	},
 
 	showLogIn: (req,res)=> {
 		res.render('users/login');
 	},
-	logInAttempt: (req,res) => {
+	logInAttempt: async (req,res) => {
 		//Existe el email?
-		let user = getUserEmail(req.body.email);
-
+		let user = await db.Users.findOne(
+			{
+				where: {
+					email: req.body.email
+				}
+			}
+		)
 		if(user == undefined){
 			res.send("Oops. No existe usuario asociado a este email. Intentalo de vuelta!")
 		} else {

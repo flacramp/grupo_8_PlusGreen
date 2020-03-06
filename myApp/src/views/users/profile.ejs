@@ -12,14 +12,14 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="../images/profileImages/<%= user.image%>" class="card-img" alt="...">
+                        <img src="../../../images/profileImages/<%= users.image%>" class="card-img" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"><%= user.first_name + " " + user.last_name%></h5>
-                            <p class="card-text">Email: <%= user.email%> </p>
-                            <p class="card-text">User ID: <%= user.id%> </p>
-                            <p class="card-text"> <%= user.category%> </p>
+                            <h5 class="card-title"><%= users.first_name + " " + users.last_name%></h5>
+                            <p class="card-text">Email: <%= users.email%> </p>
+                            <p class="card-text">User ID: <%= users.id%> </p>
+                            <p class="card-text"> <%= users.category%> </p>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form action="/register/logout" method="GET">
+            <form action="/users/logout" method="GET">
                 <button type="submit" class="btn btn-primary">LOGOUT</button>
             </form>
         </div>

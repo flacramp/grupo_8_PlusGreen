@@ -70,25 +70,25 @@
 <div class="container mb-4">
 	<!-- Primera row del listado de productos-->
 	<div class="row">
-		<%for(var j=1; j<5; j++){%>
+		<% products.slice(0,4).forEach(product => { %>
 			<div class="col-6 col-md-3"> 
-				<a style="color: grey" href="/products/<%=`${product[j].id}`%>"> 
+				<a style="color: grey" href="/products/<%=`${product.id}`%>"> 
 					<div class="card flex mx-1 mb-4">
-						<img src="images/productImages/<%=`${product[j].image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
+						<img src="/./images/productImages/<%=`${product.image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
 					
 						<div class="card-body" style="font-size: 14px; height: 150px; width: 200px">
-							<h5 class="card-title" style="font-size: 16px"><%=`${product[j].name}`%></h5>
-							<% if(product[j].sale_price == null) { %>
-								<p style="font-weight: bold; font-size: 18px"> $ <%=`${product[j].list_price}`%> </p>
+							<h5 class="card-title" style="font-size: 16px"><%=`${product.name}`%></h5>
+							<% if(product.sale_price == null) { %>
+								<p style="font-weight: bold; font-size: 18px"> $ <%=`${product.list_price}`%> </p>
 							<% } else{ %>
-								<strike> $ <%=`${product[j].list_price}`%>  </strike>
-								<p style="color: red; font-weight: bold; font-size: 18px">Oferta! $<%= `${product[j].sale_price}`%> </p>
+								<strike> $ <%=`${product.list_price}`%>  </strike>
+								<p style="color: red; font-weight: bold; font-size: 18px">Oferta! $<%= `${product.sale_price}`%> </p>
 							<%} %>
 						</div>
 					</div>
 				</a>
 		</div>
-		<% } %>
+		<% }) %>
 	</div>
 </div>
 	<!-- Terminado el row de productos-->
@@ -100,8 +100,7 @@
 			<div class="col-6 col-md-3">
 				<div class="jumbotron jumbotron-fluid">
 					<div class="container">
-						<h1 class="display-4">Banner 1</h1>
-						<p class="lead">Ofertas para banner en la home </p>
+						<img src='../../public/images/cash.png'>
 					</div>
 				</div>
 			</div>
@@ -139,25 +138,26 @@
 <div class="container mb-4">
 	<!-- Primera row del listado de productos-->
 	<div class="row">
-		<%for(var j=2; j<6; j++){%>
+		<% products.slice(-8).forEach(product => { %>
 			<div class="col-6 col-md-3"> 
-				<a style="color: grey" href="/products/<%=`${product[j].id}`%>"> 
+				<a style="color: grey" href="/products/<%=`${product.id}`%>"> 
 					<div class="card flex mx-1 mb-4">
-						<img src="/./images/productImages/<%=`${product[j].image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
+						<img src="/./images/productImages/<%=`${product.image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
 					
 						<div class="card-body" style="font-size: 14px; height: 150px; width: 200px">
-							<h5 class="card-title" style="font-size: 16px"><%=`${product[j].name}`%></h5>
-							<% if(product[j].sale_price == null) { %>
-								<p style="font-weight: bold; font-size: 18px"> $ <%=`${product[j].list_price}`%> </p>
+							<h5 class="card-title" style="font-size: 16px"><%=`${product.name}`%></h5>
+							<% if(product.sale_price == null) { %>
+								<p style="font-weight: bold; font-size: 18px"> $ <%=`${product.list_price}`%> </p>
 							<% } else{ %>
-								<strike> $ <%=`${product[j].list_price}`%>  </strike>
-								<p style="color: red; font-weight: bold; font-size: 18px">Oferta! $<%= `${product[j].sale_price}`%> </p>
+								<strike> $ <%=`${product.list_price}`%>  </strike>
+								<p style="color: red; font-weight: bold; font-size: 18px">Oferta! $<%= `${product.sale_price}`%> </p>
 							<%} %>
 						</div>
 					</div>
 				</a>
 		</div>
-		<% } %>
+		<% }) %>
+
 	</div>
 </div>
 
