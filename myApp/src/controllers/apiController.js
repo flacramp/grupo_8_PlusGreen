@@ -18,6 +18,8 @@ getProducts: (req, res) => {
             let data = {
                 aggregations: {
                     totalProducts: products.length,
+                    status: res.statusCode,
+                    method: req.method,
                 },
                 results: products,
             }
@@ -40,6 +42,26 @@ getProducts: (req, res) => {
                         method: req.method,
                     },
                     results: users,
+                }
+                res.json(data);
+            })
+            .catch(error => console.log(error));
+
+    },
+    getCategories: (req, res) => {
+        db.Categories
+            .findAll(
+
+            )
+            .then(categories => {
+
+                let data = {
+                    aggregations: {
+                        totalCategories: categories.length,
+                        status: res.statusCode,
+                        method: req.method,
+                    },
+                    results: categories,
                 }
                 res.json(data);
             })

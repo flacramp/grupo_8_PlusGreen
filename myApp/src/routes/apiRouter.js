@@ -14,4 +14,7 @@ router.get('/products',apiController.getProducts);
 /* GET - Obtener los usuarios. */
 router.get('/users', apiController.getUsers);
 
+/* GET - Obtener los usuarios. */
+router.get('/categories', apiController.getCategories);
+
 module.exports = router;
