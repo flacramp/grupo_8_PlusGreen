@@ -5,6 +5,7 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 
 const controller = {
+
 getProducts: (req, res) => {
     db.Products
         .findAll(
@@ -14,7 +15,13 @@ getProducts: (req, res) => {
         )
         .then(products => {
 
-            res.json(products);
+            let data = {
+                aggregations: {
+                    totalProducts: products.length,
+                },
+                results: products,
+            }
+            res.json(data);
         })
         .catch(error => console.log(error));
 
