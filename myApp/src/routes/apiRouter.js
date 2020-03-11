@@ -11,5 +11,7 @@ const apiController = require('../controllers/apiController');
 /* GET - Obtener los productos. */
 router.get('/products',apiController.getProducts);
 
+/* GET - Obtener los usuarios. */
+router.get('/users', apiController.getUsers);
 
 module.exports = router;

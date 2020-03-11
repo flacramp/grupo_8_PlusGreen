@@ -26,6 +26,24 @@ getProducts: (req, res) => {
         .catch(error => console.log(error));
 
 },
+    getUsers: (req, res) => {
+        db.Users
+            .findAll(
+               
+            )
+            .then(users => {
+
+                let data = {
+                    aggregations: {
+                        totalUsers: users.length,
+                    },
+                    results: users,
+                }
+                res.json(data);
+            })
+            .catch(error => console.log(error));
+
+    },
 };
 
 module.exports = controller;
