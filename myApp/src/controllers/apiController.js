@@ -36,6 +36,8 @@ getProducts: (req, res) => {
                 let data = {
                     aggregations: {
                         totalUsers: users.length,
+                        status: res.statusCode,
+                        method: req.method,
                     },
                     results: users,
                 }
