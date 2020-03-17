@@ -1,0 +1,1 @@
+console.log("probando validacion front register")
