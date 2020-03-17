@@ -33,7 +33,6 @@ router.get('/',productsController.root);
 /* GET - cart. */
 router.get('/cart',productsController.cart);
 
-
 /* POST - Borrar producto. */
 router.delete('/:id', productsController.delete);
 

@@ -40,7 +40,8 @@ app.use('/users', usersRouter);
 const main = require('./routes/main');
 app.use('/', main);
 
-
+const apiRouter = require('./routes/apiRouter');
+app.use('/restapi', apiRouter);
 
 
 
