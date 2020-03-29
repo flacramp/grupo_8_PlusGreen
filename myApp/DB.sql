@@ -12,9 +12,9 @@ MySQL - 10.4.11-MariaDB : Database - db_green
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_green` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_green_new_two` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
-USE `db_green`;
+USE `db_green_new_two`;
 
 /*Table structure for table `brands` */
 
@@ -79,6 +79,34 @@ insert  into `colors`(`id`,`name`,`createdAt`,`updatedAt`) values
 (4,'white',NULL,NULL),
 (5,'black',NULL,NULL);
 
+
+/*Table structure for table `users` */
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'noimage.png',
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `users` */
+
+insert  into `users`(`id`,`first_name`,`last_name`,`email`,`password`,`image`,`createdAt`,`updatedAt`) values 
+(1,'Jero','Robertson','jero@email.com','123abc','noimage.png',NULL,NULL),
+(2,'Franco','Lacrampette','franco@email.com','123abc','noimage.png',NULL,NULL),
+(3,'Ignacio','Danunzio','nacho@email.com','123abc','noimage.png',NULL,NULL),
+(4,'Franco Prueba','Lacrampette','pepe@gmail.com','$2a$10$MRgegbejNZDfiBprxjnyPerIJUj/yPspHKhZdCMDn9T4M/j8NNMsO','profile_image_1583283261356.png','2020-03-03 21:54:21','2020-03-03 21:54:21'),
+(8,'Jero','Prueba','jeroprueba@hotmail.com','$2a$10$haekmC9XUAi8svFWFsGWW.J2/QNOfNPk80LD2zDHg/2tNrGWgowB6','profile_image_1583449560810.png','2020-03-05 20:06:00','2020-03-05 20:06:00');
+
+
 /*Table structure for table `products` */
 
 DROP TABLE IF EXISTS `products`;
@@ -125,32 +153,6 @@ insert  into `products`(`id`,`name`,`list_price`,`model`,`description`,`image`,`
 (14,'gatitoooo',100.00,'1123','213123','product_image_1582848893552.jpg',213,213,11,NULL,1,1,1,'2020-02-27 21:14:53','2020-02-27 21:14:53',123,312,99.00),
 (15,'gatitoooo',100.00,'1123','213123','product_image_1582848913636.jpg',213,213,11,NULL,1,1,1,'2020-02-27 21:15:13','2020-02-27 21:15:13',123,312,99.00),
 (16,'prueba',100.00,'sad','asdsad','product_image_1583451770701.png',1,1,11,NULL,1,1,1,'2020-03-05 20:42:50','2020-03-05 20:42:50',1,1,10.00);
-
-/*Table structure for table `users` */
-
-DROP TABLE IF EXISTS `users`;
-
-CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'noimage.png',
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-/*Data for the table `users` */
-
-insert  into `users`(`id`,`first_name`,`last_name`,`email`,`password`,`image`,`createdAt`,`updatedAt`) values 
-(1,'Jero','Robertson','jero@email.com','123abc','noimage.png',NULL,NULL),
-(2,'Franco','Lacrampette','franco@email.com','123abc','noimage.png',NULL,NULL),
-(3,'Ignacio','Danunzio','nacho@email.com','123abc','noimage.png',NULL,NULL),
-(4,'Franco Prueba','Lacrampette','pepe@gmail.com','$2a$10$MRgegbejNZDfiBprxjnyPerIJUj/yPspHKhZdCMDn9T4M/j8NNMsO','profile_image_1583283261356.png','2020-03-03 21:54:21','2020-03-03 21:54:21'),
-(8,'Jero','Prueba','jeroprueba@hotmail.com','$2a$10$haekmC9XUAi8svFWFsGWW.J2/QNOfNPk80LD2zDHg/2tNrGWgowB6','profile_image_1583449560810.png','2020-03-05 20:06:00','2020-03-05 20:06:00');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
