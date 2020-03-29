@@ -2,7 +2,7 @@ module.exports =
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "pokemon1",
     "database": "db_green",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -10,7 +10,7 @@ module.exports =
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "pokemon1",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -18,7 +18,7 @@ module.exports =
   },
   "production": {
     "username": "root",
-    "password": null,
+    "password": "pokemon1",
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql",
