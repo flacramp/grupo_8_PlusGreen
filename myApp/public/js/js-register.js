@@ -30,10 +30,8 @@ window.addEventListener("load",function() {
         if (campoRecontraseña.value == "" ) {
             errores.push("El campo recontraseña está vacio")
         }
-       console.log(campoContraseña);
-       console.log(campoRecontraseña);
 
-        if (campoContraseña.value.length > 0 && campoRecontraseña.value.length > 0 && (campoContraseña != campoRecontraseña)) {
+        if (campoContraseña.value.length > 0 && campoRecontraseña.value.length > 0 && (campoContraseña.value != campoRecontraseña.value)) {
             errores.push("Las contraseñas no coinciden!")
         }
 
@@ -45,7 +43,6 @@ window.addEventListener("load",function() {
         if (errores.length > 0 ){
          e.preventDefault();
 
-        console.log("entre al for")
             let ulErrores = document.querySelector("div.errores ul");
 
             for (let i = 0; i < errores.length; i++) {
