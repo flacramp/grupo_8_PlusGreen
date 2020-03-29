@@ -14,10 +14,11 @@ getProducts: (req, res) => {
             }
         )
         .then(products => {
-
+            let totalSum = products.map(oneProduct => total = oneProduct.list_price * oneProduct.stock);
             let data = {
                 aggregations: {
                     totalProducts: products.length,
+                    totalAmount: totalSum.reduce((a, b) => a + b, 0),
                     status: res.statusCode,
                     method: req.method,
                 },
