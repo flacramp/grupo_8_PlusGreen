@@ -5,38 +5,131 @@
 	<body>
 		<%- include('../partials/header');%>
 
+		<div class="container mt-5 mb-5">
+			<div class="row">
+					
+				<div class="col-lg-6">
+					<h1>Registrate!</h1>
 
-		<h1>Registrate!</h1>
-		<form action="/users/register" class="register" method="POST" enctype='multipart/form-data'>
-			<div>
-				<label>Nombre</label>
-				<input type="text" name="first_name"  class="nombre" placeholder="Juan">
-			</div>
-			<div>
-				<label>Apellido</label>
-				<input type="text" name="last_name" class="apellido" placeholder="Pérez">
-			</div>
-			<div>
-				<label>Email</label>
-				<input type="email" name="email" class="email" placeholder="jperez@gmail.com">
-			</div>
-			<div>
-				<label>Contraseña</label>
-				<input type="password" class="contraseña" name="password">
-			</div>
-			<div>
-				<label>Repetir contraseña</label>
-				<input type="password" class="recontraseña" name="rePassword">
-			</div>
-			<div>
-				<label>Foto de Perfil</label>
-				<input type="file" class="foto" name="image">
-			</div>
-			<button type="submit">Registrarse</button>
-			<div  class= "errores" style="color: red; background-color: lightpink;">
-				<ul></ul>
-			</div>
-		</form>
+					<form action="/users/register" class="register" method="POST" enctype='multipart/form-data'>
+						<div class="form-group">
+							<label>Nombre</label>
+							<input 	type="text" 
+									name="first_name"
+									placeholder="Juan"  
+									class="nombre form-control
+										<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+											<%= hasErrorGetMessage('first_name', errors) ? 'is-invalid' : null %> 	
+									<% } %>
+									"
+									value="<%= typeof oldData !== 'undefined' ? oldData.first_name : null %>"	
+							>
+							<i class="invalid-feedback">
+								<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+									<%= hasErrorGetMessage('first_name', errors) ? hasErrorGetMessage('first_name', errors) : null %> 	
+								<% } %>
+							</i>
+						</div>	
+
+						<div class="form-group">
+							<label>Apellido</label>
+							<input 	type="text" 
+									name="last_name"
+									placeholder="Pérez"  
+									class="apellido form-control
+										<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+											<%= hasErrorGetMessage('last_name', errors) ? 'is-invalid' : null %> 	
+									<% } %>
+									"
+									value="<%= typeof oldData !== 'undefined' ? oldData.last_name : null %>"	
+							>
+							<i class="invalid-feedback">
+								<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+									<%= hasErrorGetMessage('last_name', errors) ? hasErrorGetMessage('last_name', errors) : null %> 	
+								<% } %>
+							</i>
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input 	type="email" 
+									name="email"
+									placeholder="jperez@gmail.com"  
+									class="email form-control
+										<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+											<%= hasErrorGetMessage('email', errors) ? 'is-invalid' : null %> 	
+									<% } %>
+									"
+									value="<%= typeof oldData !== 'undefined' ? oldData.email : null %>"	
+							>
+							<i class="invalid-feedback">
+								<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+									<%= hasErrorGetMessage('email', errors) ? hasErrorGetMessage('email', errors) : null %>
+								<% } %>
+							</i>
+						</div>
+
+						<div class="form-group">
+							<label>Contraseña</label>
+							<input 	type="password" 
+									name="password"
+									class="contraseña form-control
+										<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+											<%= hasErrorGetMessage('password', errors) ? 'is-invalid' : null %> 	
+									<% } %>
+									"	
+							>
+							<i class="invalid-feedback">
+								<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+									<%= hasErrorGetMessage('password', errors) ? hasErrorGetMessage('password', errors) : null %> 	
+								<% } %>
+							</i>
+						</div>
+
+						<div class="form-group">
+							<label>Repetir contraseña</label>
+							<input 	type="password" 
+									name="rePassword"
+									class="recontraseña form-control
+										<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+											<%= hasErrorGetMessage('rePassword', errors) ? 'is-invalid' : null %> 	
+									<% } %>
+									"	
+							>
+							<i class="invalid-feedback">
+								<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+									<%= hasErrorGetMessage('rePassword', errors) ? hasErrorGetMessage('rePassword', errors) : null %> 	
+								<% } %>
+							</i>
+						</div>
+						<div class="form-group">
+							<label>Foto de Perfil</label> <br>
+							<div class="custom-file">
+								<input 	type="file" 
+										name="image"
+										class="foto custom-file-input
+											<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+												<%= hasErrorGetMessage('image', errors) ? 'is-invalid' : null %> 	
+										<% } %>
+										"
+								>
+								<label class="custom-file-label" style="color: gray">Elegí tu foto de perfil</label>
+								<i class="invalid-feedback">
+									<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+										<%= hasErrorGetMessage('image', errors) ? hasErrorGetMessage('image', errors) : null %> 	
+									<% } %>
+								</i>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary mb-2">Registrarse</button>
+						<div  class= "errores" style="color: red; background-color: lightpink;">
+							<ul></ul>
+						</div>
+					</form>
+				</div>
+				<div class="col-lg-6"></div>
+			</div>	
+		</div>	
+
 	<script src = "/js/js-register.js"></script>
 	</body>
 

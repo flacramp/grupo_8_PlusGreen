@@ -3,6 +3,7 @@ const bcryptjs = require('bcryptjs');
 const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
+const {validationResult} = require('express-validator')
 
 const controller = {
 
@@ -10,6 +11,25 @@ const controller = {
 		res.render('users/register');
 	},
 	saveUser: (req, res) => {
+		const hasErrorGetMessage = (field, errors) =>{
+			for (const oneError of errors) {
+				if (oneError.param == field) {
+					return oneError.msg;
+				}
+			}
+			return false;
+		}
+		
+		let errorsResult = validationResult(req);
+		console.log(errorsResult);
+		
+		if ( !errorsResult.isEmpty()){
+			return res.render('users/register', {	
+				errors: errorsResult.array(),
+				hasErrorGetMessage,
+				oldData: req.body,
+			})
+		} else {
 		db.Users.create({
 			first_name: req.body.first_name,
 			last_name: req.body.last_name,
@@ -22,8 +42,10 @@ const controller = {
 			req.session.userId = lastInserted.id;
 			res.cookie('userCookie', lastInserted.id, {maxAge: 60000 * 60 * 24 * 30});
 			return res.redirect('/users/profile')
-		})	
-	},
+		})		
+		.catch(error => console.log(error));
+	}
+},
 
 	profile: (req,res) => {
 		db.Users.findByPk(req.session.userId)
