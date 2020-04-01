@@ -1,5 +1,19 @@
 const { check } = require('express-validator');
 const path = require('path');
+const db = require('../database/models');
+const sequelize = db.sequelize;
+
+let emailAlreadyExists = async function(email) {
+    await db.Users.findOne({
+        where: {
+            email: email
+        }
+    })
+    .then(users => {
+        return true
+    })
+    return false;
+}
 
 
 let registerValidatorMiddleware = [
@@ -16,7 +30,15 @@ let registerValidatorMiddleware = [
     //valido email
     check('email')
     .notEmpty().withMessage('El campo Email no puede estar vacío').bail()
-    .isEmail().withMessage('El campo Email sólo acepta un formato de Email: ejemplo@gmail.com'),
+    .isEmail().withMessage('El campo Email sólo acepta un formato de Email: ejemplo@gmail.com')
+    .custom(email => {
+        if(emailAlreadyExists(email)){
+            throw new Error('El email ya existe! Por favor, ingresá otro email para continuar el resgistro')
+        } else {
+            return email;
+        }
+    }),
+
 
     //valido password
     check('password')
