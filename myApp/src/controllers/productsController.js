@@ -14,7 +14,6 @@ const controller = {
 				}
 			)
 			.then(products => {
-				
 				 res.render('products/list', {products}); 
 			})
 			.catch(error => console.log(error));
@@ -79,6 +78,8 @@ const controller = {
 				res.render('products/detail', {products});
 			})
 			.catch(error => console.log(error));
+
+			
 	},
 	
 	delete: (req,res) => {
@@ -89,7 +90,7 @@ const controller = {
 				}
 			})
 			.then(products => {
-				res.redirect('../');
+			return res.redirect('../');
 			})
 	},
 	edit: (req, res) => {
@@ -127,7 +128,6 @@ const controller = {
 				length: req.body.length,
 				height: req.body.height,
 				weight: req.body.weight,
-				// user_id: req.session.userId},
 			},{
 				where: {
 					id: req.params.id

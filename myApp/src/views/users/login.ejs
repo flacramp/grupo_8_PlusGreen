@@ -9,13 +9,26 @@
 	<div class="row">
 	<div class="col-lg-4"></div>	
 	<div class="col-lg-4">
-			<h1>Iniciá Sesión</h1>
-	
+		<h1>Iniciá Sesión</h1>
+
 		<form action="/users/login" class="login" method = "POST">
 		<div class="form-group">
-
 		  <label for="email">Email</label>
-		  <input type="email" class="form-control email" name="email" placeholder="jperez@gmail.com">
+		  <input 	type="email" 
+					name="email"  
+					placeholder="jperez@gmail.com"
+					class="email form-control
+						<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+							<%= hasErrorGetMessage('email', errors) ? 'is-invalid' : null %> 	
+						<% } %>
+						"
+			>
+			<i class="invalid-feedback">
+				<% if (typeof hasErrorGetMessage !== 'undefined') { %>
+					<%= hasErrorGetMessage('email', errors) ? hasErrorGetMessage('email', errors) : null %> 	
+				<% } %>
+			</i>
+		  
 		</div>
 		<div class="form-group">
 		  <label for="password">Contraseña:</label>

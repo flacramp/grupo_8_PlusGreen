@@ -21,8 +21,7 @@
 	    <div class="form-group col-12 col-sm-6 col-md-3">
 			<label>Marca</label>
 			<select name="brand" class="form-control">
-					<option value="<%= products.brands.id %>" active> <%=products.brands.name  %> </option>  
-			
+				<option value="<%= products.brands.id %>" active> <%=products.brands.name  %> </option> 
 			</select>
 	   </div>
 	    <div class="form-group col-12 col-sm-6 col-md-3">
@@ -52,7 +51,7 @@
 	</div>
 	<div class="form-row">
 		<div class="form-group col-12 custom-file">
-			<label class="custom-file-label" for="customFile">Si no queres editarla, no toques</label>
+			<label class="custom-file-label" for="customFile"><%= products.image  %> </label>
 			<input type="file" name="image" class="form-control custom-file-input">
 		</div>
 	</div>

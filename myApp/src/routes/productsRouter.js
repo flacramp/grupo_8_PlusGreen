@@ -22,7 +22,7 @@ const productsController = require('../controllers/productsController');
 
 
 /* GET - Formulario para crear producto. */
-router.get('/create',productsController.showForm);
+router.get('/create',authMiddleware, productsController.showForm);
 
 /* POST - Creacion de producto. */
 router.post('/create', uploadProductImage.single('image'),productsController.create);
