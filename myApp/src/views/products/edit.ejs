@@ -23,8 +23,9 @@
 			<select name="brand" class="form-control">
 				<option value="<%= products.brands.id %>" active> <%=products.brands.name  %> </option> 
 				<% brands.forEach(oneBrand => { %>
+					<% if(oneBrand.id !=products.brands.id){ %> 
 				<option value="<%= oneBrand.id %>"> <%=oneBrand.name  %> </option>
-				<% }) %>
+				<% }}) %>
 			</select>
 	   </div>
 	    <div class="form-group col-12 col-sm-6 col-md-3">
@@ -36,8 +37,9 @@
 			<select name="category" class="form-control">
 				<option value="<%= products.categories.id %>" active> <%=products.categories.name  %> </option> 
 				<% categories.forEach(oneCategory => { %>
+					<% if(oneCategory.id !=products.categories.id){ %> 
 				<option value="<%= oneCategory.id %>"> <%=oneCategory.name  %> </option>
-				<% }) %>
+				<% }}) %>
 			</select>
 
 		</div>
@@ -46,8 +48,9 @@
 			<select name="color" class="form-control">
 				<option value="<%= products.colors.id %>" active> <%=products.colors.name  %> </option> 
 				<% colors.forEach(oneColor => { %>
+					<% if(oneColor.id !=products.colors.id){ %> 
 				<option value="<%= oneColor.id %>"> <%=oneColor.name  %> </option>
-				<% }) %>
+				<% }}) %>
 			</select>
 
 		</div>

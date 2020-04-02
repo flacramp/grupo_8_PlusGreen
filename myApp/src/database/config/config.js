@@ -2,9 +2,9 @@ module.exports =
 {
   "development": {
     "username": "root",
-    "password": "pokemon1",
+    "password": "",
     "database": "db_green",
-    "password": "pokemon1",
+    "password": "",
     "database": "db_green",
     "host": "127.0.0.1",
     "dialect": "mysql",
