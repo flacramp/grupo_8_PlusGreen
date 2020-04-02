@@ -2,13 +2,10 @@ module.exports =
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "pokemon1",
     "database": "db_green",
-=======
->>>>>>> b04ce8a82a645a8151abae121212832339732c8e
-    "password": null,
-    "database": "db_green_new_two",
+    "password": "pokemon1",
+    "database": "db_green",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false

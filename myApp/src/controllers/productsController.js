@@ -93,19 +93,26 @@ const controller = {
 			return res.redirect('../');
 			})
 	},
-	edit: (req, res) => {
+	edit: async (req, res) => {
 		
-		db.Products
-			.findByPk(
-				req.params.id,
-				{
-				include: ['categories', 'colors', 'brands'] 
-				}
-			)
-			.then(products => {
-				res.render('products/edit', {products})
+		let products = await db.Products.findByPk(req.params.id, {
+			include: ['categories', 'colors', 'brands']
+		});
+		let categories = db.Categories.findAll();
+		let colors = db.Colors.findAll();
+		let brands = db.Brands.findAll();
+		Promise
+			.all([categories, colors, brands, products])
+			.then(queries => {
+				//console.log(queries);
+				return res.render('products/edit', {
+					categories: queries[0],
+					colors: queries[1],
+					brands: queries[2],
+					products: queries[3],
+				});
 			})
-			.catch(error => console.log(error))
+			.catch(error => console.log(error))	
 	},
 	update: async (req, res) => {
 	
