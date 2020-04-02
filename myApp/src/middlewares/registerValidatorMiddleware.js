@@ -17,7 +17,7 @@ let registerValidatorMiddleware = [
     //valido email
     check('email')
     .notEmpty().withMessage('El campo Email no puede estar vacío').bail()
-    .isEmail().withMessage('El campo Email sólo acepta un formato de Email: ejemplo@gmail.com')
+    .isEmail().withMessage('El campo Email sólo acepta un formato de Email: ejemplo@gmail.com').bail()
     .custom(email => {
         return db.Users.findOne({
 			where: {

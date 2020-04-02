@@ -68,6 +68,9 @@
 
 <!-- Meto una fila para el row de productos-->
 <div class="container mb-4">
+	<div class="pb-1 pl-2">
+		<h3 style="color:darkslategrey"><b>NOVEDADES DE LA SEMANA</b></h1>
+	</div>
 	<!-- Primera row del listado de productos-->
 	<div class="row">
 		<% products.slice(0,4).forEach(product => { %>
@@ -93,73 +96,36 @@
 </div>
 	<!-- Terminado el row de productos-->
 
-	<!--  Meto ROW creo 4 banners-->
-	<div class="container mb-2">
-		<div class="row">
-			<!--Arranco los 4 banners botones-->
-			<div class="col-6 col-md-3">
-				<div class="jumbotron jumbotron-fluid">
-					<div class="container">
-						<img src='../../public/images/cash.png'>
-					</div>
-				</div>
-			</div>
-			<div class="col-6 col-md-3">
-				<div class="jumbotron jumbotron-fluid">
-					<div class="container">
-						<h1 class="display-4">Banner 2</h1>
-						<p class="lead">Ofertas para banner en la home</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-6 col-md-3">
-				<div class="jumbotron jumbotron-fluid">
-					<div class="container">
-						<h1 class="display-4">Banner 3</h1>
-						<p class="lead">Ofertas para banner en la home </p>
-					</div>
-				</div>
-			</div>
-			<div class="col-6 col-md-3">
-				<div class="jumbotron jumbotron-fluid">
-					<div class="container">
-						<h1 class="display-4">Banner 4</h1>
-						<p class="lead">Ofertas para banner en la home</p>
-					</div>
-				</div>
-			</div>
-			<!--Termino los 4 banners botones-->
-		</div>
-	</div>
-	<!--Termino la ROW-->
-
-
-	<!-- Meto una fila para el row de productos-->
+	<!-- Segunda row del listado de productos-->
 <div class="container mb-4">
-	<!-- Primera row del listado de productos-->
-	<div class="row">
-		<% products.slice(-8).forEach(product => { %>
-			<div class="col-6 col-md-3"> 
-				<a style="color: grey" href="/products/<%=`${product.id}`%>"> 
-					<div class="card flex mx-1 mb-4">
-						<img src="/./images/productImages/<%=`${product.image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
-					
-						<div class="card-body" style="font-size: 14px; height: 150px; width: 200px">
-							<h5 class="card-title" style="font-size: 16px"><%=`${product.name}`%></h5>
-							<% if(product.sale_price == null) { %>
-								<p style="font-weight: bold; font-size: 18px"> $ <%=`${product.list_price}`%> </p>
-							<% } else{ %>
-								<strike> $ <%=`${product.list_price}`%>  </strike>
-								<p style="color: red; font-weight: bold; font-size: 18px">Oferta! $<%= `${product.sale_price}`%> </p>
-							<%} %>
-						</div>
-					</div>
-				</a>
-		</div>
-		<% }) %>
-
+	<div class="pb-1 pl-2">
+		<h3 style="color:darkslategrey"><b>LOS MAS VENDIDOS</b></h1>
 	</div>
+<div class="row">
+	<% products.slice(4,8).forEach(product => { %>
+		<div class="col-6 col-md-3"> 
+			<a style="color: grey" href="/products/<%=`${product.id}`%>"> 
+				<div class="card flex mx-1 mb-4">
+					<img src="/./images/productImages/<%=`${product.image}`%>" class="card-img-top img-circle" alt="Responsive Image" >							
+				
+					<div class="card-body" style="font-size: 14px; height: 150px; width: 200px">
+						<h5 class="card-title" style="font-size: 16px"><%=`${product.name}`%></h5>
+						<% if(product.sale_price == null) { %>
+							<p style="font-weight: bold; font-size: 18px"> $ <%=`${product.list_price}`%> </p>
+						<% } else{ %>
+							<strike> $ <%=`${product.list_price}`%>  </strike>
+							<p style="color: red; font-weight: bold; font-size: 18px">Oferta! $<%= `${product.sale_price}`%> </p>
+						<%} %>
+					</div>
+				</div>
+			</a>
+	</div>
+	<% }) %>
 </div>
+</div>
+<!-- Terminado el row de productos-->
+
+
 
 
 	<!--Sumo Row para crear el teaser-->
@@ -173,16 +139,15 @@
 		</div>
 	</div>
 	<!--Terminado-->
-
+	
 	<!-- Armo el modulo de imagen grande con 4 listas-->
 	<div class="container mb-4">
 		<div class="row">
 			<!--Arrancamos con columa + boostrap para la parte IZQUIERDA -->
-			<div class="col-12 col-md-6">
-				<div class="card mw-100 h-100">
+			<div class="col-12 col-lg-6">
+				<div class="card mw-100 h-80">
 					<img class="card-img-top h-80" src="images/pura.jpg" alt="Card image cap">
 					<div class="card-body" style="background-color: rgba(0,0,255,.1)">
-
 						<p class="card-text">La mejor oferta del momento</p>
 					</div>
 				</div>
@@ -191,7 +156,11 @@
 
 			<!--Arrancamos con columa + boostrap para la parte DERECHA -->
 			<!-- NOTICIAS -->
-			<div class="col-12 col-md-6">
+			
+			<div class="col-12 col-lg-6">
+				<div class="pt-2 pb-1 pl-2">
+					<h3 style="color:darkslategrey"><b>¡MIRA LAS MEJORES NOTICIAS!</b></h1>
+				</div>
 				<div class="list-group">
 					<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
 						<div class="d-flex w-100 justify-content-between">

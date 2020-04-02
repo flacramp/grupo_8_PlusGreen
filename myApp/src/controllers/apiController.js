@@ -27,7 +27,6 @@ getProducts: (req, res) => {
             res.json(data);
         })
         .catch(error => console.log(error));
-
 },
     getUsers: (req, res) => {
         db.Users

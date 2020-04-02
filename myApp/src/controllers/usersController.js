@@ -22,7 +22,7 @@ const controller = {
 		
 		let errorsResult = validationResult(req);
 		console.log(errorsResult);
-		
+
 		if ( !errorsResult.isEmpty()){
 			return res.render('users/register', {	
 				errors: errorsResult.array(),
@@ -60,17 +60,31 @@ const controller = {
 	},
 	logInAttempt: async (req,res) => {
 		//Existe el email?
-		let user = await db.Users.findOne(
-			{
-				where: {
-					email: req.body.email
+
+		const hasErrorGetMessage = (field, errors) =>{
+			for (const oneError of errors) {
+				if (oneError.param == field) {
+					return oneError.msg;
 				}
 			}
-		)
-		if(user == undefined){
-			res.send("Oops. No existe usuario asociado a este email. Intentalo de vuelta!")
+			return false;
+		}
+		let errorsResult = validationResult(req);
+		
+		if ( !errorsResult.isEmpty()){
+			return res.render('users/login', {	
+				errors: errorsResult.array(),
+				hasErrorGetMessage,
+				oldData: req.body,
+			})
 		} else {
-
+			let user = await db.Users.findOne(
+				{
+					where: {
+						email: req.body.email
+					}
+				}
+			)
 			// Comparo passwords
 			if(bcryptjs.compareSync(req.body.password, user.password)){
 				req.session.userId = user.id;
@@ -78,13 +92,17 @@ const controller = {
 				if (req.body.remember_user) {
 					res.cookie('userCookie', user.id, { maxAge: 60000 * 60 * 24 * 30 });
 				}
-
-				res.redirect('/users/profile');
-			} else {
-				res.send('Contraseña incorrecta. Intentalo de vuelta!')
+			res.redirect('/users/profile');
+		} else {
+			let incorrectPasswordMessage = 'Contraseña incorrecta. Por favor, intentá nuevamente.'
+			return res.render('users/login', {
+				incorrectPasswordMessage: incorrectPasswordMessage,
+				oldData:req.body,
+			});
+			// res.send('Contraseña incorrecta. Intentalo de vuelta!')
 
 			}
-				}
+		}
 	},
 	logout: (req,res) => {
 		req.session.destroy();
