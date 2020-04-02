@@ -5,8 +5,8 @@ const path = require('path');
 const multer = require('multer');
 const authMiddleware=require('../middlewares/authMiddleware')
 const guestMiddleware = require('../middlewares/guestMiddleware')
-
-
+const registerValidatorMiddleware = require('../middlewares/registerValidatorMiddleware')
+const loginValidatorMiddleware = require('../middlewares/loginValidatorMiddleware')
 
 
 const storageDiskProfileImage = multer.diskStorage({
@@ -24,18 +24,17 @@ const uploadProfileImage=multer({storage: storageDiskProfileImage});
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
 
-
 /* GET - formulario de registro. */
 router.get('/register', guestMiddleware, usersController.showRegister);
 
 /* POST - Guardar el registro del usuario en DB */ 
-router.post('/register', uploadProfileImage.single('image') ,usersController.saveUser);
+router.post('/register', uploadProfileImage.single('image'), registerValidatorMiddleware ,usersController.saveUser);
 
 /* GET - Log In. */
 router.get('/login',guestMiddleware, usersController.showLogIn);
 
 /* POST - Validacion Log In */ 
-router.post('/login',  usersController.logInAttempt);
+router.post('/login', loginValidatorMiddleware,usersController.logInAttempt);
 
 /*GET - Perfil de Usuario */
 router.get('/profile', authMiddleware,usersController.profile);
