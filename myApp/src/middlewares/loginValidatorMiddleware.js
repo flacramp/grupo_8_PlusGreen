@@ -3,6 +3,19 @@ const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 
+let emailAlreadyExists = async function(email) {
+    await db.Users.findOne({
+        where: {
+            email: email
+        }
+    })
+    .then(users => {
+        return true
+    })
+    return false;
+}
+
+
 let registerValidatorMiddleware = [
     //validando Nombre
     check('first_name')
@@ -19,16 +32,13 @@ let registerValidatorMiddleware = [
     .notEmpty().withMessage('El campo Email no puede estar vacío').bail()
     .isEmail().withMessage('El campo Email sólo acepta un formato de Email: ejemplo@gmail.com')
     .custom(email => {
-        return db.Users.findOne({
-			where: {
-				email: email
-			}
-		}).then(user => {
-			if (user) {
-				return Promise.reject('El email ya existe! Por favor, ingresá otro email para continuar el resgistro');
-			}
-		});
+        if(emailAlreadyExists(email)){
+            throw new Error('El email ya existe! Por favor, ingresá otro email para continuar el resgistro')
+        } else {
+            return email;
+        }
     }),
+
 
     //valido password
     check('password')

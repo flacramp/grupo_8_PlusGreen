@@ -6,6 +6,8 @@ const multer = require('multer');
 const authMiddleware=require('../middlewares/authMiddleware')
 const guestMiddleware = require('../middlewares/guestMiddleware')
 const registerValidatorMiddleware = require('../middlewares/registerValidatorMiddleware')
+const loginValidatorMiddleware = require('../middlewares/loginValidatorMiddleware')
+
 
 const storageDiskProfileImage = multer.diskStorage({
 	destination: (req, file, cb) => {
@@ -32,7 +34,7 @@ router.post('/register', uploadProfileImage.single('image'), registerValidatorMi
 router.get('/login',guestMiddleware, usersController.showLogIn);
 
 /* POST - Validacion Log In */ 
-router.post('/login',  usersController.logInAttempt);
+router.post('/login', loginValidatorMiddleware,usersController.logInAttempt);
 
 /*GET - Perfil de Usuario */
 router.get('/profile', authMiddleware,usersController.profile);
