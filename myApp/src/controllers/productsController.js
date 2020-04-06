@@ -112,7 +112,7 @@ const controller = {
 					products: queries[3],
 				});
 			})
-			.catch(error => console.log(error))	
+			.catch(error => console.log(error))
 	},
 	update: async (req, res) => {
 	
